@@ -1,2 +1,0 @@
-# Malnet
-FYPJ Malnet application
