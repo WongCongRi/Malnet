@@ -3225,6 +3225,7 @@ table.text-center th {
 .register-box {
   width: 360px;
   margin: 7% auto;
+  position: relative;
 }
 @media (max-width: 768px) {
   .login-box,
@@ -3235,10 +3236,13 @@ table.text-center th {
 }
 .login-box-body,
 .register-box-body {
-  background: #fff;
+  /*background: #fff;*/
+  background-image: linear-gradient(to top left, #03ce5f, #03cf8d,  #02cec4);
+  /*background-attachment: fixed;*/
   padding: 20px;
   border-top: 0;
-  color: #666;
+  color: #000;
+  letter-spacing: 1px;
 }
 .login-box-body .form-control-feedback,
 .register-box-body .form-control-feedback {
@@ -3249,6 +3253,8 @@ table.text-center th {
   margin: 0;
   text-align: center;
   padding: 0 20px 20px 20px;
+  color: black;
+  letter-spacing: 1px;
 }
 .social-auth-links {
   margin: 10px 0;

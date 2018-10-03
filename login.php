@@ -93,19 +93,49 @@
   <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="plugins/font-awesome/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
   <!-- Ionicons -->
   <link rel="stylesheet" href="plugins/ionicons/css/ionicons.min.css">
+  <link href="http://localhost/mrf/dist/img/Malnet_logo.jpg" rel="shortcut icon" type="image/x-icon" />
   <!-- Theme style -->
-  <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="dist/css/AdminLTE.css">
   <!-- iCheck -->
   <link rel="stylesheet" href="plugins/iCheck/square/blue.css">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
+  <!--[if lt IE 9]-->
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
+<style>
+	* {
+    		padding: 0px;
+    		margin: 0px;
+    		box-sizing: border-box;
+    		font-family: 'Roboto', Times, Serif;
+	  }
+
+	body{
+		margin: 0 auto;
+    		max-width: 1924px;
+    		padding: 0px;
+	  }
+
+	#Mlogo{
+		box-shadow: 9px 7px 7px #595959;
+    		position: relative;
+		top: -10px;
+    		left: 45px;
+    		border-left-color: #03cf8d;
+    		border-top-color: #03cf8d;
+    		border-left-style: solid;
+    		border-top-style: solid;
+    		border-left-width: 1px;
+    		border-top-width: 1px;
+    		border-radius: 50px;
+	  }
+</style>
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
@@ -114,7 +144,8 @@
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
-    <p class="login-box-msg">Sign in to start your session</p>
+    	<img src="http://localhost/mrf/dist/img/Malnet.jpg" id="Mlogo"/>
+	<p class="login-box-msg">Sign in to start your session</p>
     
     <?php
     foreach($errors as $error) { ?>
