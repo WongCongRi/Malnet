@@ -101,11 +101,11 @@
   <link rel="stylesheet" href="dist/css/AdminLTE.css">
   <!-- iCheck -->
   <link rel="stylesheet" href="plugins/iCheck/square/blue.css">
-
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]-->
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <!--<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
 <style>
@@ -125,8 +125,8 @@
 	#Mlogo{
 		box-shadow: 9px 7px 7px #595959;
     		position: relative;
-		top: -10px;
-    		left: 45px;
+		top: -7px;
+    		left: 30px;
     		border-left-color: #03cf8d;
     		border-top-color: #03cf8d;
     		border-left-style: solid;
@@ -134,6 +134,7 @@
     		border-left-width: 1px;
     		border-top-width: 1px;
     		border-radius: 50px;
+		max-width: 100%;
 	  }
 </style>
 </head>
@@ -179,7 +180,8 @@
         </div>
         <!-- /.col -->
         <div class="col-xs-4">
-          <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+          <!--<button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>-->
+	  <button type="submit" class="mdl-button mdl-js-button--raised">Sign In</button>
         </div>
         <!-- /.col -->
       </div>
