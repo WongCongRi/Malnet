@@ -107,6 +107,7 @@ class MRFDatabase
 	{
 		$stmt = $this->mysqli->prepare("SELECT count(*) as count FROM samples");
 		$stmt->execute();
+		console.log("executed sql query");
 		$stmt->bind_result($count);
 		$stmt->fetch();
 		$stmt->close();		
