@@ -3220,25 +3220,34 @@ table.text-center th {
 .login-page,
 .register-page {
   background: #d2d6de;
+  background-image: linear-gradient(to top left, #03ce5f, #03cf8d,  #02cec4);
 }
 .login-box,
 .register-box {
   width: 360px;
   margin: 7% auto;
+  padding: 5px 15px 5px 15px;
+  position: relative;
+  right: 20px;
+  clear: both;
+  max-width: 600px;
 }
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
   .login-box,
   .register-box {
     width: 90%;
-    margin-top: 20px;
+    margin: 0 auto;
   }
 }
 .login-box-body,
 .register-box-body {
   background: #fff;
+  background-image: linear-gradient(to top right, #03ce5f, #03cf8d,  #02cec4);
   padding: 20px;
   border-top: 0;
-  color: #666;
+  border-radius: 40px;
+  color: #000;
+  letter-spacing: 1px;
 }
 .login-box-body .form-control-feedback,
 .register-box-body .form-control-feedback {
@@ -3246,9 +3255,11 @@ table.text-center th {
 }
 .login-box-msg,
 .register-box-msg {
-  margin: 0;
+  margin: 0 auto;
   text-align: center;
   padding: 0 20px 20px 20px;
+  color: black;
+  letter-spacing: 1px;
 }
 .social-auth-links {
   margin: 10px 0;
