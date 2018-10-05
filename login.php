@@ -126,7 +126,7 @@
 		box-shadow: 9px 7px 7px #595959;
     		position: relative;
 		top: -7px;
-    		left: 30px;
+    		left: 40px;
     		border-left-color: #03cf8d;
     		border-top-color: #03cf8d;
     		border-left-style: solid;
