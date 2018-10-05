@@ -701,9 +701,11 @@ function get_files(page_flt)
 		type: 'get'
 	}).fail(function () {
 		// Log the error
+		console.log("there has been a problem - main.js:704");
 	}).always(function () {
 		$(this).removeClass('fileupload-processing');
 	}).done(function (result) {
+		console.log(result.toString());
 		$(this).fileupload('option', 'done').call(this, $.Event('done'), {result: result});
 		on_files_gotten(result);
 	});

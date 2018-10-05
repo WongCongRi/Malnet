@@ -350,6 +350,7 @@ desired effect
 		
 		<!-- The template to display files available for upload -->
 		<script id="template-upload" type="text/x-tmpl">
+console.log("i am doing file uplaod stuff");
 		{% for (var i=0, file; file=o.files[i]; i++) { %}
 			<tr class="template-upload fade">
 				<td colspan="4">
