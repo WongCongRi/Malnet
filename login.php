@@ -123,12 +123,12 @@
 	  }
 
 	#Mlogo{
-		box-shadow: 9px 7px 7px #595959;
+		box-shadow: 7px 6px 5px #808080;
     		position: relative;
-		top: -7px;
-    		left: 40px;
-    		border-left-color: #03cf8d;
-    		border-top-color: #03cf8d;
+		top: -1px;
+    		left: 55px;
+    		border-left-color: #4ffcc5;
+    		border-top-color: #4ffcc5;
     		border-left-style: solid;
     		border-top-style: solid;
     		border-left-width: 1px;
@@ -136,6 +136,17 @@
     		border-radius: 50px;
 		max-width: 100%;
 	  }
+
+	#rf{
+		position: relative;
+		left: 20px;
+  		bottom: 10px;
+		letter-spacing: 1px;
+	}
+
+	#rf > a{
+		color: black;
+	}
 </style>
 </head>
 <body class="hold-transition login-page">
@@ -195,10 +206,10 @@
         Google+</a>
     </div>-->
     <!-- /.social-auth-links -->
-
-    <a href="forgot-password.php">I forgot my password</a><br>
-    <a href="register.php" class="text-center">Register a new membership</a>
-
+    <div id="rf"/>
+    <a href="forgot-password.php"><u>I forgot my password</u></a><br>
+    <a href="register.php" class="text-center"><u>Register a new membership</u></a>
+  </div>
   </div>
   <!-- /.login-box-body -->
 </div>

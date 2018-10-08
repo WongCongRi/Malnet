@@ -4,9 +4,9 @@
 <!-- Logo -->
 <a href="<?php echo $GLOBALS["config"]["urls"]["baseUrl"] ?>" class="logo">
 	<!-- mini logo for sidebar mini 50x50 pixels -->
-	<span class="logo-mini"><?php echo $user_settings->WebsiteShortName() ?></span>
+	<span class="logo-mini"><img src="http://localhost/mrf/dist/img/Malnet_logo.jpg" height="45" width="45"/><?php echo $user_settings->WebsiteShortName() ?></span>
 	<!-- logo for regular state and mobile devices -->
-	<span class="logo-lg"><?php echo $user_settings->WebsiteName() ?></span>
+	<span class="logo-lg"><img src="http://localhost/mrf/dist/img/Malnet_logo.jpg" height="45" width="45"/><?php echo $user_settings->WebsiteName() ?></span>
 </a>
 
 <!-- Header Navbar -->
