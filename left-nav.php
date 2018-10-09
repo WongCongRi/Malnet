@@ -79,7 +79,7 @@
 		</li>
 		<?php } ?>
 	<?php } ?>	
-	<!--<li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>-->	
+	<li><a href="#"><i class="fa fa-link"></i> <span>About</span></a></li>
 	<!--<li class="treeview">
 		<a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
 		<span class="pull-right-container">
@@ -90,8 +90,8 @@
 		<li><a href="#">Link in level 2</a></li>
 		<li><a href="#">Link in level 2</a></li>
 		</ul>
-	</li>-->
-	</ul>
+	</li>
+	</ul>-->
 	<!-- /.sidebar-menu -->
 </section>
 <!-- /.sidebar -->
