@@ -3214,12 +3214,15 @@ table.text-center th {
  * Page: Login & Register
  * ----------------------
  */
-.-logo,
+.login-logo,
 .register-logo {
   font-size: 35px;
   text-align: center;
-  margin-bottom: 25px;
+  margin-bottom:25px;
   font-weight: 300;
+  margin: 0 auto;
+  padding: 20px;
+  
 }
 .login-logo a,
 .register-logo a {
@@ -3235,42 +3238,50 @@ table.text-center th {
   background-size: cover;
   background-position: center;
   max-width: 1924px;
+  margin: 0 auto;
+  padding: 0px;
 }
 .login-box,
 .register-box {
   width: 360px;
   margin: 7% auto;
-  padding: 10px 20px 10px 20px;
+  padding: 10px 20px 30px 20px;
   position: relative;
   left: 5px;
-  bottom: 10px;
+  top: 20px;
   clear: both;
-  max-width: 600px;
 }
 @media screen and (max-width: 768px) {
   .login-box,
   .register-box {
-    max-width:100%;
-    margin: 0 auto;
-    padding: 5px 15px 5px 15px;
+    width: 90%;
+    margin: 7% auto;
+    padding: 10px 20px 10px 20px;
+    clear: both;
   }
 }
 .login-box-body,
 .register-box-body {
-  background: #fff;
+  /*background: #fff;*/
   /*background-image: linear-gradient(to top left, #03cf8d,  #35fdf3);*/
   margin: 0 auto;
-  padding: 10px;
+  padding: 10px 15px 20px 15px;
   clear: both;
   position: absolute;
   right: 20px;
-  top: 10px;
+  top: -20px;
   border-top: 0;
-  border-radius: 40px;
+  border-radius: 50px;
   color: #000;
   letter-spacing: 1px;
+  width: 500px;
   max-width: 100%;
-  width: 800px;	
+  box-shadow: 7px 6px 5px #808080;
+  border-width: 1px;
+  border-top-style: solid;
+  border-left-style: solid;
+  border-top-color: #595959;
+  border-left-color: #595959;
 }
 .login-box-body .form-control-feedback,
 .register-box-body .form-control-feedback {
@@ -3280,7 +3291,7 @@ table.text-center th {
 .register-box-msg {
   margin: 0 auto;
   text-align: center;
-  padding: 15px 10px 20px 10px;
+  padding: 15px 0px 20px 0px;
   color: black;
   letter-spacing: 1px;
 }

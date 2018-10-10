@@ -77,9 +77,9 @@
 				<span><?php echo $value["name"]?></span>
 			</a>
 		</li>
-		<?php } ?>
-	<?php } ?>	
-	<li><a href="#"><i class="fa fa-link"></i> <span>About</span></a></li>
+	<?php } ?>
+	<?php } ?>
+	<li><a href="about.php"><i class="fa fa-link"></i> <span>About</span></a></li>
 	<!--<li class="treeview">
 		<a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
 		<span class="pull-right-container">

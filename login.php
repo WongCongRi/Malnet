@@ -50,7 +50,7 @@
           $entered_pass = generateHash($password, $userdetails->Password());          
           if($entered_pass != $userdetails->Password())
           {
-            //Again, we know the password is at fault here, but lets not give away the combination incase of someone bruteforcing
+            //Again, we know the password is at fault here, but lets not give away the combination in case of someone bruteforcing
             $errors[] = lang("ACCOUNT_USER_OR_PASS_INVALID");
           }
           else
@@ -120,13 +120,14 @@
 		margin: 0 auto;
     		max-width: 1924px;
     		padding: 0px;
+		background: 100%;
 	  }
 
 	#Mlogo{
 		box-shadow: 7px 6px 5px #808080;
     		position: relative;
 		top: -1px;
-    		left: 55px;
+    		left: 48px;
     		border-left-color: #4ffcc5;
     		border-top-color: #4ffcc5;
     		border-left-style: solid;
@@ -135,6 +136,8 @@
     		border-top-width: 1px;
     		border-radius: 50px;
 		max-width: 100%;
+		height: 230px;
+		width: 230px;
 	  }
 
 	#rf{
@@ -152,7 +155,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-      <a href="index.php"><?php $user_settings->WebsiteName() ?></a>
+      <a href="index.php"><?php echo $user_settings->WebsiteName() ?></a>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">

@@ -91,5 +91,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
 	<!-- Your Page Content Here -->
 	<div class="panel panel-info">
 		<div class="panel-heading">Repository Information</div>
+	</div>
+    </section>
+    </div>
+    </div>
 </body>
 </html>
