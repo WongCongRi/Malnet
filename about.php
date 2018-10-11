@@ -29,6 +29,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="plugins/font-awesome/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
   <!-- Ionicons -->
   <link rel="stylesheet" href="plugins/ionicons/css/ionicons.min.css">
   <link href="http://localhost/mrf/dist/img/Malnet_logo.jpg" rel="shortcut icon" type="image/x-icon" />
@@ -87,13 +89,92 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <!-- Main content -->
     <section class="content">
-
+    <h1>About</h1>
+    <br/>
+    <img src="http://localhost/mrf/dist/img/Malnet.jpg" id="logo"/>
+    <article>
+    <br/>
+    <section>
+    <aside>
+    <p>Malnet serves as a web application which is able to automate malware analysis of any given payload.</p>
+    </aside>
+    </section>
+    </article>
 	<!-- Your Page Content Here -->
-	<div class="panel panel-info">
+	<!--<div class="panel panel-info">
 		<div class="panel-heading">Repository Information</div>
-	</div>
+	</div>-->
     </section>
     </div>
+    <?php  include(__DIR__."/footer.php"); ?> 
+    <?php  include(__DIR__."/right-nav.php"); ?>
     </div>
+
+<!-- REQUIRED JS SCRIPTS -->
+
+<!-- jQuery 2.2.3 -->
+<script src="plugins/jQuery/jquery-2.2.3.min.js"></script>
+<!-- AdminLTE App -->
+<script src="dist/js/app.min.js"></script>
+<!-- TinyMCE -->
+<script src="plugins/tinymce/js/tinymce/tinymce.min.js"></script>
+
+<!-- MRF -->
+<!--<script src="plugins/jQueryUpload/js/vendor/jquery.min.js"></script>-->
+<!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
+<!--<script src="plugins/jQueryUpload/js/vendor/jquery.ui.widget.js"></script>-->
+<script src="plugins/jQueryUI/jquery-ui.min.js"></script>
+<!-- The Templates plugin is included to render the upload/download listings -->
+<script src="plugins/jQueryUpload/js/tmpl.min.js"></script>
+<!-- The Load Image plugin is included for the preview images and image resizing functionality -->
+<script src="plugins/jQueryUpload/js/load-image.all.min.js"></script>
+<!-- The Canvas to Blob plugin is included for image resizing functionality -->
+<script src="plugins/jQueryUpload/js/canvas-to-blob.min.js"></script>
+<!-- Bootstrap JS is not required, but included for the responsive demo navigation -->
+<!--<script src="plugins/jQueryUpload/js/bootstrap.min.js"></script>-->
+<!-- blueimp Gallery script -->
+<script src="plugins/jQueryUpload/js/jquery.blueimp-gallery.min.js"></script>
+<!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
+<script src="plugins/jQueryUpload/js/jquery.iframe-transport.js"></script>
+<!-- The basic File Upload plugin -->
+<script src="plugins/jQueryUpload/js/jquery.fileupload.js"></script>
+<!-- The File Upload processing plugin -->
+<script src="plugins/jQueryUpload/js/jquery.fileupload-process.js"></script>
+<!-- The File Upload image preview & resize plugin -->
+<script src="plugins/jQueryUpload/js/jquery.fileupload-image.js"></script>
+<!-- The File Upload audio preview plugin -->
+<script src="plugins/jQueryUpload/js/jquery.fileupload-audio.js"></script>
+<!-- The File Upload video preview plugin -->
+<script src="plugins/jQueryUpload/js/jquery.fileupload-video.js"></script>
+<!-- The File Upload validation plugin -->
+<script src="plugins/jQueryUpload/js/jquery.fileupload-validate.js"></script>
+<!-- The File Upload user interface plugin -->
+<script src="plugins/jQueryUpload/js/jquery.fileupload-ui.js"></script>
+<!-- The XDomainRequest Transport is included for cross-domain file deletion for IE 8 and IE 9 -->
+<!--[if (gte IE 8)&(lt IE 10)]>
+<script src="js/cors/jquery.xdr-transport.js"></script>
+<![endif]-->
+
+<!-- Bootstrap 3.3.6 -->
+<!-- Bootstrap needs to be placed AFTER jquery-ui because of tootltip conflicts -->
+<script src="plugins/bootstrap/js/bootstrap.min.js"></script>
+
+<!-- jqPagination scripts -->
+<script src="plugins/jQueryUpload/js/jquery.jqpagination.js"></script>
+<!-- tags -->
+<script type="text/javascript" src="plugins/jQueryUpload/js/tagmanager.js"></script>
+<!-- PACE -->
+<script data-pace-options='{"ajax":false,"document":false,"eventLag":false,"startOnPageLoad":false}' src="plugins/pace/pace.min.js"></script>
+<!-- The main application script -->
+<script src="dist/js/main.js"></script>
+
+<script>
+$(function() {
+	var filters = <?php echo json_encode($filters) ?>;
+	initRepo(filters);
+	//Uncomment this for auto-refresh, though this isn't recommended.
+	//setInterval(refreshRepo, 5000);
+});
+</script>
 </body>
 </html>

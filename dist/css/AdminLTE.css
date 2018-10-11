@@ -3263,7 +3263,7 @@ table.text-center th {
 .login-box-body,
 .register-box-body {
   /*background: #fff;*/
-  /*background-image: linear-gradient(to top left, #03cf8d,  #35fdf3);*/
+  background-image: linear-gradient(to bottom left, #4ffcc5,  #35fdf3);
   margin: 0 auto;
   padding: 10px 15px 20px 15px;
   clear: both;
@@ -3276,12 +3276,14 @@ table.text-center th {
   letter-spacing: 1px;
   width: 500px;
   max-width: 100%;
-  box-shadow: 7px 6px 5px #808080;
-  border-width: 1px;
+  box-shadow: 8px 7px 5px #808080;
+  border-width: 0px;
   border-top-style: solid;
   border-left-style: solid;
-  border-top-color: #595959;
-  border-left-color: #595959;
+  border-top-color: #03cf8d;
+  border-left-color: #03cf8d;
+  /*border-top-color: #808080;
+  border-left-color: #808080;*/
 }
 .login-box-body .form-control-feedback,
 .register-box-body .form-control-feedback {
