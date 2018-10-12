@@ -82,7 +82,7 @@
 ?> 
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -126,20 +126,22 @@
 	#Mlogo{
 		box-shadow: 7px 6px 5px #808080;
     		position: relative;
-		top: -1px;
-    		left: 48px;
+    		left: 50px;
+		right: -10px;
+   		top: -5px;
     		border-left-color: #4ffcc5;
     		border-top-color: #4ffcc5;
     		border-left-style: solid;
     		border-top-style: solid;
-    		border-left-width: 3px;
-    		border-top-width: 3px;
+    		/*border-left-width: 3px;
+    		border-top-width: 3px;*/
     		border-radius: 50px;
 		max-width: 100%;
 		height: 230px;
 		width: 230px;
-		margin: 0 auto;
+		margin: 10 auto;
                 padding: 0px;
+		clear: both;
 	  }
 
 	#rf{
@@ -160,8 +162,9 @@
       <a href="index.php"><?php echo $user_settings->WebsiteName() ?></a>
   </div>-->
   <!-- /.login-logo -->
+  <img src="http://localhost/mrf/dist/img/Malnet.jpg" id="Mlogo"/>
   <div class="login-box-body">
-    	<img src="http://localhost/mrf/dist/img/Malnet.jpg" id="Mlogo"/>
+    	<!--<img src="http://localhost/mrf/dist/img/Malnet.jpg" id="Mlogo"/>-->
 	<p class="login-box-msg">Sign in to start your session</p>
     
     <?php

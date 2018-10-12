@@ -18,7 +18,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   }
 ?>
 
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -75,28 +75,83 @@ scratch. This page gets rid of all links and provides the needed markup only.
 	ul#dropdown-item-actions {
 	    z-index: 10000;
 	}
+ 
+     *{
+         margin: 0px;
+         padding: 0px;
+         box-sizing: border-box;
+      }
+
+     body{
+		margin: 0 auto;
+    		max-width: 1924px;
+    		padding: 0px;
+		background: 100%;
+	  }
+ 
+     .content-wrapper{
+	    background-image: linear-gradient(to bottom right, #4ffcc5, #35fdf3);
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+ 	    background-size: cover;
+            background-position: center;
+         }
+
+     .content{
+               padding: 20px 50px;
+	       color: black;
+	     }
+
+     h1{
+ 	 font-size: 70px;
+	 font-weight: 500;
+         font-family: 'Roboto', sans-serif;
+       }
+
+     h2{
+	 font-size: 40px;
+         font-weight: 500;
+         font-family: 'Open Sans', sans-serif;
+       }
+
+     .content p{
+         width: 100%;
+         margin-right: 5px;
+         font-family: 'Lato', sans-serif;
+         font-size: 18px;
+         letter-spacing: 0.5px;
+      }
+
+     #logo{
+            box-shadow: 9px 7px 9px #595959;
+            border-radius: 50px;
+            max-width: 100%;
+          }
   </style>
   
 </head>
 <body class="hold-transition skin-green sidebar-mini">
 <div class="wrapper">
 
-  <?php  include(__DIR__."/top-nav.php"); ?> 
-  <?php  include(__DIR__."/left-nav.php"); ?> 
+    <?php  include(__DIR__."/top-nav.php"); ?> 
+    <?php  include(__DIR__."/left-nav.php"); ?> 
   
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
 
     <!-- Main content -->
-    <section class="content">
+    <header class="content">
     <h1>About</h1>
     <br/>
     <img src="http://localhost/mrf/dist/img/Malnet.jpg" id="logo"/>
+    <br/><br/>
     <article>
-    <br/>
+    <h2><u>About us</u></h2>
     <section>
     <aside>
     <p>Malnet serves as a web application which is able to automate malware analysis of any given payload.</p>
+    <p>We utilise the open source tool, Cuckoo, for our scanning/reporting engine to determine the malicious nature of the payload.</p>
+    <p>Malware reporting will be done using STIX format with key constructs for clearer presentation.</p>
     </aside>
     </section>
     </article>
@@ -104,7 +159,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 	<!--<div class="panel panel-info">
 		<div class="panel-heading">Repository Information</div>
 	</div>-->
-    </section>
+    </header>
     </div>
     <?php  include(__DIR__."/footer.php"); ?> 
     <?php  include(__DIR__."/right-nav.php"); ?>
