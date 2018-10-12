@@ -197,7 +197,7 @@
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
-    <p class="login-box-msg">Password recevery</p> 
+    <p class="login-box-msg">Password recovery</p> 
     
     <?php
     foreach($errors as $error) { ?>
