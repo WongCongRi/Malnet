@@ -67,7 +67,7 @@ class MRFCore
 	}
 	
 	public function GetFiles() {
-		return $this->uploader->getfiles(true);
+		return $this->uploader->getfiles(false);
 	}
 	
 	// Returns an array with 1/0 file
