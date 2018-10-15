@@ -90,7 +90,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 	  }
  
      .content-wrapper{
-	    background-image: linear-gradient(to bottom right, #4ffcc5, #35fdf3);
+	    background-image: linear-gradient(to bottom left, #4ffcc5, #35fdf3);
             background-attachment: fixed;
             background-repeat: no-repeat;
  	    background-size: cover;
@@ -123,7 +123,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       }
 
      #logo{
-            box-shadow: 9px 7px 9px #595959;
+            box-shadow: 7px 6px 5px #808080;
             border-radius: 50px;
             max-width: 100%;
           }

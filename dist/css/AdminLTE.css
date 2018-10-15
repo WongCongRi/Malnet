@@ -3232,7 +3232,7 @@ table.text-center th {
 .register-page{
   /*background: #d2d6de;*/
   /*background: #6c7993;*/
-  background-image: linear-gradient(to bottom right, #4ffcc5,  #35fdf3);
+  background-image: linear-gradient(to bottom left, #4ffcc5,  #35fdf3);
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
