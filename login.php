@@ -147,12 +147,16 @@
 	#rf{
 		position: relative;
 		left: 20px;
-  		bottom: 10px;
+  		bottom: 30px;
 		letter-spacing: 1px;
 	}
 
 	#rf > a{
 		color: black;
+	}
+
+	#rf > a:hover{
+		      color: #326767;
 	}
 </style>
 </head>
@@ -214,8 +218,9 @@
         Google+</a>
     </div>-->
     <!-- /.social-auth-links -->
-    <div id="rf"/>
-    <a href="forgot-password.php"><u>I forgot my password</u></a><br>
+    <div id="rf">
+    <a href="forgot-password.php"><u>I forgot my password</u></a>
+    <br/>
     <a href="register.php" class="text-center"><u>Register a new membership</u></a>
   </div>
   </div>

@@ -151,6 +151,10 @@
   			left: 10px;
 			bottom: 25px;
 	  }
+
+	  #already:hover{
+ 		    color:#326767;
+	  }
 </style>
 </head>
 <body class="hold-transition register-page">
@@ -232,7 +236,7 @@
         Google+</a>
     </div>-->
 
-    <a href="login.php" class="text-center">I already have a membership</a>
+    <a href="login.php" id="already" class="text-center"><u>I already have a membership</u></a>
   </div>
   <!-- /.form-box -->
 </div>
