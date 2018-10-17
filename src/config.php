@@ -44,7 +44,7 @@ $config = array(
         ),
 		array(
 			"name" => "Project on Github",
-			"link" => "https://github.com/Tigzy/malware-repo",
+			"link" => "https://github.com/wongcongri/malnet",
 			"icon" => "fa fa-github",
 			"target" => "_blank"
 		)
@@ -110,7 +110,7 @@ $config = array(
 			"enabled" => True,
 			"class" => "VirusTotal",
 			"priority" => 10,
-			"key" => 'YOUR_API_KEY',
+			"key" => '360fa173bbc4db9d0caaa3c3b7c3717559de5d42e28728a64578fcdcf22cb4e8',
 			"automatic_upload" => False,
 			"comment_uploaded" => array(
 				"enabled" => False,	// If true, files uploaded (new analysis) will be commented upon completion
