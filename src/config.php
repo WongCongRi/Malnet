@@ -42,12 +42,12 @@ $config = array(
             "link" => "/mrf/cuckoo.php",
             "icon" => "fa fa-industry",
         ),
-		array(
-			"name" => "Project on Github",
-			"link" => "https://github.com/wongcongri/malnet",
-			"icon" => "fa fa-github",
-			"target" => "_blank"
-		)
+		//array(
+		//	"name" => "Project on Github",
+		//	"link" => "https://github.com/wongcongri/malnet",
+		//	"icon" => "fa fa-github",
+		//	"target" => "_blank"
+		//)
     ),
     "urls" => array(
         "baseUrl" => "http://localhost/mrf/",
