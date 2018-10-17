@@ -50,7 +50,7 @@
           $entered_pass = generateHash($password, $userdetails->Password());          
           if($entered_pass != $userdetails->Password())
           {
-            //Again, we know the password is at fault here, but lets not give away the combination incase of someone bruteforcing
+            //Again, we know the password is at fault here, but lets not give away the combination in case of someone bruteforcing
             $errors[] = lang("ACCOUNT_USER_OR_PASS_INVALID");
           }
           else
@@ -82,7 +82,7 @@
 ?> 
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -100,7 +100,7 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="dist/css/AdminLTE.css">
   <!-- iCheck -->
-  <link rel="stylesheet" href="plugins/iCheck/square/blue.css">
+  <link rel="stylesheet" href="plugins/iCheck/square/green.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -120,32 +120,55 @@
 		margin: 0 auto;
     		max-width: 1924px;
     		padding: 0px;
+		background: 100%;
 	  }
 
 	#Mlogo{
-		box-shadow: 9px 7px 7px #595959;
+		box-shadow: 7px 6px 5px #808080;
     		position: relative;
-		top: -7px;
-    		left: 30px;
-    		border-left-color: #03cf8d;
-    		border-top-color: #03cf8d;
+    		left: 50px;
+		right: -10px;
+   		top: -5px;
+    		border-left-color: #4ffcc5;
+    		border-top-color: #4ffcc5;
     		border-left-style: solid;
     		border-top-style: solid;
-    		border-left-width: 1px;
-    		border-top-width: 1px;
+    		/*border-left-width: 3px;
+    		border-top-width: 3px;*/
     		border-radius: 50px;
 		max-width: 100%;
+		height: 230px;
+		width: 230px;
+		margin: 10 auto;
+                padding: 0px;
+		clear: both;
 	  }
+
+	#rf{
+		position: relative;
+		left: 20px;
+  		bottom: 30px;
+		letter-spacing: 1px;
+	}
+
+	#rf > a{
+		color: black;
+	}
+
+	#rf > a:hover{
+		      color: #326767;
+	}
 </style>
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
-  <div class="login-logo">
-      <a href="index.php"><?php $user_settings->WebsiteName() ?></a>
-  </div>
+  <!--<div class="login-logo">
+      <a href="index.php"><?php echo $user_settings->WebsiteName() ?></a>
+  </div>-->
   <!-- /.login-logo -->
+  <img src="http://localhost/mrf/dist/img/Malnet.jpg" id="Mlogo"/>
   <div class="login-box-body">
-    	<img src="http://localhost/mrf/dist/img/Malnet.jpg" id="Mlogo"/>
+    	<!--<img src="http://localhost/mrf/dist/img/Malnet.jpg" id="Mlogo"/>-->
 	<p class="login-box-msg">Sign in to start your session</p>
     
     <?php
@@ -195,10 +218,11 @@
         Google+</a>
     </div>-->
     <!-- /.social-auth-links -->
-
-    <a href="forgot-password.php">I forgot my password</a><br>
-    <a href="register.php" class="text-center">Register a new membership</a>
-
+    <div id="rf">
+    <a href="forgot-password.php"><u>I forgot my password</u></a>
+    <br/>
+    <a href="register.php" class="text-center"><u>Register a new membership</u></a>
+  </div>
   </div>
   <!-- /.login-box-body -->
 </div>
@@ -213,8 +237,8 @@
 <script>
   $(function () {
     $('input').iCheck({
-      checkboxClass: 'icheckbox_square-blue',
-      radioClass: 'iradio_square-blue',
+      checkboxClass: 'icheckbox_square-green',
+      radioClass: 'iradio_square-green',
       increaseArea: '20%' // optional
     });
   });

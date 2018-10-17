@@ -1055,8 +1055,8 @@ class UCDatabase
 		
 		$configuration_entry = "
 		INSERT INTO `".$this->prefix."configuration` (`id`, `name`, `value`) VALUES
-		(1, 'website_name', 'UserCake'),
-		(3, 'email', 'noreply@ILoveUserCake.com'),
+		(1, 'website_name', 'Malnet'),
+		(3, 'email', 'noreply@ILoveMalnet.com'),
 		(4, 'activation', 'false'),
 		(5, 'resend_activation_threshold', '0'),
 		(6, 'language', 'models/languages/en.php'),

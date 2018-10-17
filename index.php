@@ -31,8 +31,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="plugins/font-awesome/css/font-awesome.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="plugins/ionicons/css/ionicons.min.css">
+  <link href="http://localhost/mrf/dist/img/Malnet_logo.jpg" rel="shortcut icon" type="image/x-icon" />
   <!-- Theme style -->
-  <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="dist/css/AdminLTE.css">
   <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
         page. However, you can choose any other skin. Make sure you
         apply the skin class to the body tag so the changes take effect.
@@ -328,7 +329,7 @@ desired effect
 		<!-- The table listing the files available for upload/download -->
 		<div class="table-responsive">
             <table role="presentation" class="table table-hover table-striped">
-                <!--<thead>
+                <thead>
                     <tr>
                         <th></th>
                         <th></th>
@@ -342,7 +343,7 @@ desired effect
                         <th></th>
                         <th></th>
                     </tr>
-                </thead>-->
+                </thead>
                 <tbody class="files"></tbody>
             </table>
         </div>
@@ -591,15 +592,15 @@ console.log("i am doing file uplaod stuff");
         <!-- Old code for row expansion -->
         <!--<td>
                 <a href="#more_{%=file.md5%}" data-toggle="collapse"><span class="glyphicon glyphicon-plus" style="font-size: 1em; vertical-align: middle;"></span></a>
-            </td>-->
-        <!--<tr id="more_{%=file.md5%}" class="collapse in">
+            </td>
+        <tr id="more_{%=file.md5%}" class="collapse in">
             <td colspan="100%">
                 <div class="panel panel-info">
                 <div class="panel-body form-group" style="margin-bottom: 0px;">	
                 </div>
                 </div>
             </td>
-        </tr>-->
+        </tr>
                 
         <div id="commentModal" class="modal fade" role="dialog">
             <div class="modal-dialog modal-lg">	
@@ -639,10 +640,10 @@ console.log("i am doing file uplaod stuff");
                                         <i class="glyphicon glyphicon-plus"></i>
                                     </button>
                                 </div>
-                            </div>
+                            </div>-->
                         
                             <!-- The option field template containing an option field and a Remove button -->
-                            <div class="form-group hide" id="urltemplate">
+                            <!--<div class="form-group hide" id="urltemplate">
                                 <div class="col-xs-4">
                                     <input class="form-control" type="text" id="name_next" placeholder="Description" />
                                 </div>
@@ -666,7 +667,7 @@ console.log("i am doing file uplaod stuff");
                     </div>
                 </div>
             </div>
-        </div>
+        </div>-->
         
         <div id="commentVTModal" class="modal fade" role="dialog">
             <div class="modal-dialog modal-lg">	
