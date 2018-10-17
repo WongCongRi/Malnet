@@ -65,7 +65,7 @@ $config = array(
 			"priority" => 9,	// MIME is used by other modules
 		),
 		"pedata" => array(
-			"enabled" => True,
+			"enabled" => False,
 			"class" => "PEData",
 			"priority" => 10,
 		),

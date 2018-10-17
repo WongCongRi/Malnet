@@ -219,9 +219,9 @@
     </div>-->
     <!-- /.social-auth-links -->
     <div id="rf">
-    <a href="forgot-password.php"><u>I forgot my password</u></a>
+    <a href="forgot-password.php"><u></u></a>
+    <a href="register.php" class="text-center"><u>Register for an account</u></a>
     <br/>
-    <a href="register.php" class="text-center"><u>Register a new membership</u></a>
   </div>
   </div>
   <!-- /.login-box-body -->
