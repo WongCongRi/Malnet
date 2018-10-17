@@ -90,7 +90,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 	  }
  
      .content-wrapper{
-	    background-image: linear-gradient(to bottom left, #4ffcc5, #35fdf3);
+	    background-image: linear-gradient(to top left, #4ffcc5, #35fdf3);
             background-attachment: fixed;
             background-repeat: no-repeat;
  	    background-size: cover;

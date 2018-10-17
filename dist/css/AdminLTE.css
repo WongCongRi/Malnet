@@ -3221,7 +3221,7 @@ table.text-center th {
   margin-bottom:25px;
   font-weight: 300;
   margin: 0 auto;
-  padding: 20px;
+  padding: 10px;
   
 }
 .login-logo a,
@@ -3232,7 +3232,7 @@ table.text-center th {
 .register-page{
   /*background: #d2d6de;*/
   /*background: #6c7993;*/
-  background-image: linear-gradient(to bottom left, #4ffcc5,  #35fdf3);
+  background-image: linear-gradient(to top left, #4ffcc5,  #35fdf3);
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
@@ -3248,7 +3248,7 @@ table.text-center th {
   padding: 10px 10px 30px 10px;
   position: relative;
   left: 5px;
-  top: 20px;
+  top: 15px;
   clear: both;
 }
 @media screen and (max-width: 768px) {

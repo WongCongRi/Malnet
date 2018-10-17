@@ -128,7 +128,7 @@
     		position: relative;
     		left: 50px;
 		right: -10px;
-   		top: -5px;
+   		top: 5px;
     		border-left-color: #4ffcc5;
     		border-top-color: #4ffcc5;
     		border-left-style: solid;
@@ -139,7 +139,7 @@
 		max-width: 100%;
 		height: 230px;
 		width: 230px;
-		margin: 10 auto;
+		margin: 0 auto;
                 padding: 0px;
 		clear: both;
 	  }
@@ -169,7 +169,7 @@
   <img src="http://localhost/mrf/dist/img/Malnet.jpg" id="Mlogo"/>
   <div class="login-box-body">
     	<!--<img src="http://localhost/mrf/dist/img/Malnet.jpg" id="Mlogo"/>-->
-	<p class="login-box-msg">Sign in to start your session</p>
+	<p class="login-box-msg"><u>Sign in to start your session</u></p>
     
     <?php
     foreach($errors as $error) { ?>
