@@ -52,8 +52,9 @@
 				break;
 			}
         } ?>	
-		<li <?php if( $active ) echo 'class="active treeview"'; else echo 'class="treeview"'; ?>>
-			<a href="#">
+	
+	<li <?php if( $active ) echo 'class="active treeview"'; else echo 'class="treeview"'; ?>>
+		<a href="#">
 	            <i class="<?php echo $value["icon"]?>"></i>
 	            <span><?php echo $value["name"]?></span>
         	</a>
@@ -68,7 +69,7 @@
 				</li>
 	            <?php } ?>
           </ul>
-		</li>
+	</li>
 		<?php } else { 
 		$active = $_SERVER['PHP_SELF'] == $value["link"]; ?>	
 		<li <?php if( $active ) echo 'class="active"' ?>>
