@@ -65,7 +65,7 @@
 					</div>
 				</a>
 			</li>
-			<li>
+			<!--<li>
 				<a href="<?php echo $GLOBALS["config"]["urls"]["baseUrl"]?>forgot-password.php">
 					<i class="menu-icon fa fa-user-secret bg-yellow"></i>	
 					<div class="menu-info">
@@ -73,7 +73,7 @@
 						<p>retrieve your login credentials</p>
 					</div>
 				</a>
-			</li>
+			</li>-->
 		</ul>
 		<?php } ?>
 		<!-- /.control-sidebar-menu -->

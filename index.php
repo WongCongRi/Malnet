@@ -337,10 +337,10 @@ desired effect
                         <th></th>
                         <th>Date</th>
                         <th>Threat Name</th>
+                        <th>Tags</th>
                         <th>Hash MD5</th>
                         <th>Filename</th>
                         <th>Size</th>
-                        <th></th>
                         <th></th>
                     </tr>
                 </thead>

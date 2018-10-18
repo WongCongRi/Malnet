@@ -236,7 +236,7 @@
         Google+</a>
     </div>-->
 
-    <a href="login.php" id="already" class="text-center"><u>I already have a membership</u></a>
+    <a href="login.php" id="already" class="text-center"><u>I already have an account</u></a>
   </div>
   <!-- /.form-box -->
 </div>
