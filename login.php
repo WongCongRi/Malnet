@@ -124,17 +124,11 @@
 	  }
 
 	#Mlogo{
-		box-shadow: 1px 1px 5px #fff;
+		box-shadow: 5px 5px 9px #777;
     		position: relative;
     		left: 50px;
 		right: -10px;
    		top: 5px;
-    		border-left-color: #4ffcc5;
-    		border-top-color: #4ffcc5;
-    		border-left-style: solid;
-    		border-top-style: solid;
-    		/*border-left-width: 3px;
-    		border-top-width: 3px;*/
     		border-radius: 50px;
 		max-width: 100%;
 		height: 230px;
@@ -153,7 +147,6 @@
 
 	#rf > a{
 		color: white;
-		text-shadow: 1px 1px 5px #fff;
 	}
 
 	#rf > a:hover{
@@ -162,7 +155,6 @@
 
 	.form-group > label {
 		   color: white;
-		   text-shadow: 1px 1px 5px #fff;
 	}
 </style>
 </head>
@@ -209,8 +201,8 @@
         </div>
         <!-- /.col -->
         <div class="col-xs-4">
-          <!--<button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>-->
-	  <button type="submit" class="mdl-button mdl-js-button--raised">Sign In</button>
+          <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+	  <!--<button type="submit" class="mdl-button mdl-js-button--raised">Sign In</button>-->
         </div>
         <!-- /.col -->
       </div>
