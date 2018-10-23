@@ -40,7 +40,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         page. However, you can choose any other skin. Make sure you
         apply the skin class to the body tag so the changes take effect.
   -->
-  <link rel="stylesheet" href="dist/css/skins/skin-green.min.css">
+  <link rel="stylesheet" href="dist/css/skins/skin-red.min.css">
 
   <!-- Generic page styles -->
   <link rel="stylesheet" href="plugins/jQueryUpload/css/style.css">
@@ -67,15 +67,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <![endif]-->
 
   <style type="text/css">
-    .table-responsive {
-		min-height: 400px !important;
-	}
-	
-	ul#dropdown-item-actions,
-	ul#dropdown-item-actions {
-	    z-index: 10000;
-	}
- 
      *{
          margin: 0px;
          padding: 0px;
@@ -90,7 +81,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 	  }
  
      .content-wrapper{
-	    background-image: linear-gradient(to top left, #4ffcc5, #35fdf3);
+	    /*background-image: linear-gradient(to top left, #4ffcc5, #35fdf3);*/
+	    background-image: url("http://localhost/mrf/dist/img/bigMapBg.jpg");
             background-attachment: fixed;
             background-repeat: no-repeat;
  	    background-size: cover;
@@ -99,7 +91,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
      .content{
                padding: 20px 50px;
-	       color: black;
+	       color: white;
+	       text-shadow: 1px 1px 5px #fff;
 	     }
 
      h1{
@@ -123,14 +116,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
       }
 
      #logo{
-            box-shadow: 7px 6px 5px #808080;
+            box-shadow: 1px 1px 5px #fff;
             border-radius: 50px;
             max-width: 100%;
           }
   </style>
   
 </head>
-<body class="hold-transition skin-green sidebar-mini">
+<body class="hold-transition skin-red sidebar-mini">
 <div class="wrapper">
 
     <?php  include(__DIR__."/top-nav.php"); ?> 

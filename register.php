@@ -126,7 +126,7 @@
 	  }
 
 	#Mlogo{
-		box-shadow: 7px 6px 5px #808080;
+		box-shadow: 1px 1px 5px #fff;
     		position: relative;
     		left: -20px;
    		top: 20px;
@@ -146,14 +146,15 @@
 	  }
 
           .text-center{
-			color: black;
+			color: white;
+    			text-shadow: 1px 1px 5px #fff;
 			position: relative;
   			left: 10px;
 			bottom: 25px;
 	  }
 
 	  #already:hover{
- 		    color:#326767;
+ 		    color:#e45785;
 	  }
 </style>
 </head>
