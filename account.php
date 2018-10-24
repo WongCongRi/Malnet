@@ -83,7 +83,7 @@ desired effect
               <p class="text-muted text-center"><span class="label label-info"><?php $user->Title() ?></span></p>
 
               <ul class="list-group list-group-unbordered">
-                <li class="list-group-item">
+                <li style="display:none;" class="list-group-item">
                   <b>API Key</b><a class="pull-right"><?php echo $user->Activationtoken() ?></a>
                 </li>
                 <li class="list-group-item">

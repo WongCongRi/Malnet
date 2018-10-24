@@ -208,9 +208,9 @@ desired effect
                   <input type="text" id="email" name='settings[<?php echo $user_settings->EmailAddressId() ?>]' value='<?php echo $user_settings->EmailAddress() ?>' class="form-control" placeholder="Email">
                 </div>
               </div>
-              <div class="form-group">
+              <div style="display:none" class="form-group">
                 <label for="activation_threshold" class="col-sm-2 control-label">Activation Threshold</label>
-                <div class="col-sm-10">
+                <div style="display:none" class="col-sm-10">
                   <input type="text" id="activation_threshold" name='settings[<?php echo $user_settings->ResendActivationThresholdId() ?>]' value='<?php echo $user_settings->ResendActivationThreshold() ?>' class="form-control" placeholder="Activation Threshold">
                 </div>
               </div>
@@ -232,9 +232,9 @@ desired effect
                   </select>
                 </div>
               </div>
-              <div class="form-group">
+              <div style="display:none" class="form-group">
                 <label for="activation" class="col-sm-2 control-label">Email Activation</label>
-                <div class="col-sm-10">
+                <div style="display:none" class="col-sm-10">
                   <select type="text" id="activation" name='settings[<?php echo $user_settings->EmailActivationId() ?>]' class="form-control">
                     <?php
                     //Display email activation options
