@@ -18,7 +18,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   }
 ?>
 
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -38,7 +38,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         page. However, you can choose any other skin. Make sure you
         apply the skin class to the body tag so the changes take effect.
   -->
-  <link rel="stylesheet" href="dist/css/skins/skin-green.min.css">
+  <link rel="stylesheet" href="dist/css/skins/skin-red.min.css">
 
   <!-- Generic page styles -->
   <link rel="stylesheet" href="plugins/jQueryUpload/css/style.css">
@@ -67,6 +67,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <style type="text/css">
     .table-responsive {
 		min-height: 400px !important;
+		max-width: 1920px;
 	}
 	
 	ul#dropdown-item-actions,
@@ -96,7 +97,7 @@ desired effect
 |               | sidebar-mini                            |
 |---------------------------------------------------------|
 -->
-<body class="hold-transition skin-green sidebar-mini">
+<body class="hold-transition skin-red sidebar-mini">
 <div class="wrapper">
 
   <?php  include(__DIR__."/top-nav.php"); ?> 
@@ -351,7 +352,7 @@ desired effect
 		
 		<!-- The template to display files available for upload -->
 		<script id="template-upload" type="text/x-tmpl">
-console.log("i am doing file uplaod stuff");
+console.log("I am doing file upload");
 		{% for (var i=0, file; file=o.files[i]; i++) { %}
 			<tr class="template-upload fade">
 				<td colspan="4">

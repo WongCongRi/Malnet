@@ -100,7 +100,7 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="dist/css/AdminLTE.css">
   <!-- iCheck -->
-  <link rel="stylesheet" href="plugins/iCheck/square/green.css">
+  <link rel="stylesheet" href="plugins/iCheck/square/red.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -124,17 +124,11 @@
 	  }
 
 	#Mlogo{
-		box-shadow: 7px 6px 5px #808080;
+		box-shadow: 5px 5px 9px #777;
     		position: relative;
     		left: 50px;
 		right: -10px;
    		top: 5px;
-    		border-left-color: #4ffcc5;
-    		border-top-color: #4ffcc5;
-    		border-left-style: solid;
-    		border-top-style: solid;
-    		/*border-left-width: 3px;
-    		border-top-width: 3px;*/
     		border-radius: 50px;
 		max-width: 100%;
 		height: 230px;
@@ -152,11 +146,15 @@
 	}
 
 	#rf > a{
-		color: black;
+		color: white;
 	}
 
 	#rf > a:hover{
-		      color: #326767;
+		      color: #e45785;
+	}
+
+	.form-group > label {
+		   color: white;
 	}
 </style>
 </head>
@@ -203,8 +201,8 @@
         </div>
         <!-- /.col -->
         <div class="col-xs-4">
-          <!--<button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>-->
-	  <button type="submit" class="mdl-button mdl-js-button--raised">Sign In</button>
+          <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+	  <!--<button type="submit" class="mdl-button mdl-js-button--raised">Sign In</button>-->
         </div>
         <!-- /.col -->
       </div>
@@ -237,8 +235,8 @@
 <script>
   $(function () {
     $('input').iCheck({
-      checkboxClass: 'icheckbox_square-green',
-      radioClass: 'iradio_square-green',
+      checkboxClass: 'icheckbox_square-red',
+      radioClass: 'iradio_square-red',
       increaseArea: '20%' // optional
     });
   });

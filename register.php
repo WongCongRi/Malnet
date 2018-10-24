@@ -126,16 +126,10 @@
 	  }
 
 	#Mlogo{
-		box-shadow: 7px 6px 5px #808080;
+		box-shadow: 5px 5px 9px #777;
     		position: relative;
     		left: -20px;
    		top: 20px;
-    		border-left-color: #4ffcc5;
-    		border-top-color: #4ffcc5;
-    		border-left-style: solid;
-    		border-top-style: solid;
-    		/*border-left-width: 3px;
-    		border-top-width: 3px;*/
     		border-radius: 50px;
 		max-width: 100%;
 		height: 230px;
@@ -146,14 +140,14 @@
 	  }
 
           .text-center{
-			color: black;
+			color: white;
 			position: relative;
   			left: 10px;
 			bottom: 25px;
 	  }
 
 	  #already:hover{
- 		    color:#326767;
+ 		    color:#e45785;
 	  }
 </style>
 </head>
@@ -221,8 +215,8 @@
         </div>
         <!-- /.col -->
         <div class="col-xs-4">
-          <!--<button type="submit" class="btn btn-primary btn-block btn-flat">Register</button>-->
-	  <button type="submit" class="mdl-button mdl-js-button--raised">Register</button>
+          <button type="submit" class="btn btn-primary btn-block btn-flat">Register</button>
+	  <!--<button type="submit" class="mdl-button mdl-js-button--raised">Register</button>-->
         </div>
         <!-- /.col -->
       </div>
