@@ -7,22 +7,22 @@
  * @version 2.0
  */
 class VirusTotalAPIV2 {
-	const URL_API_BASIS 		= 'https://www.virustotal.com/vtapi/v2/';
-	const URL_SCAN_FILE 		= 'file/scan';
-	const URL_RESCAN_FILE 		= 'file/rescan';
-	const URL_FILE_REPORT 		= 'file/report';
-	const URL_SCAN_URL 			= 'url/scan';
-	const URL_URL_REPORT 		= 'url/report';
-	const URL_MAKE_COMMENT 		= 'comments/put';
+	const URL_API_BASIS    = 'https://www.virustotal.com/vtapi/v2/';
+	const URL_SCAN_FILE    = 'file/scan';
+	const URL_RESCAN_FILE  = 'file/rescan';
+	const URL_FILE_REPORT  = 'file/report';
+	const URL_SCAN_URL     = 'url/scan';
+	const URL_URL_REPORT   = 'url/report';
+	const URL_MAKE_COMMENT = 'comments/put';
 	
-	const ERROR_FILE_NOT_CHECKED = -6;
-	const ERROR_FILE_TOO_BIG	= -5;
-	const ERROR_FILE_NOT_FOUND	= -4;
-	const ERROR_API_LIMIT 		= -3;
+	const ERROR_FILE_NOT_CHECKED    = -6;
+	const ERROR_FILE_TOO_BIG        = -5;
+	const ERROR_FILE_NOT_FOUND      = -4;
+	const ERROR_API_LIMIT           = -3;
 	const ERROR_FILE_BEING_ANALYZED = -2;
-	const ERROR_API_ERROR		= -1;
-	const ERROR_FILE_UNKNOWN	= 0;
-	const ERROR_FILE_FOUND		= 1;
+	const ERROR_API_ERROR           = -1;
+	const ERROR_FILE_UNKNOWN        = 0;
+	const ERROR_FILE_FOUND          = 1;
 
 	private $_key;
 

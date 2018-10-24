@@ -35,7 +35,8 @@ class VirusTotal extends IModule
 				new QueryUpdate('link', 	''),
 				new QueryUpdate('scan_id', 	''),
 				new QueryUpdate('score', 	'0', 'int'),
-				new QueryUpdate('status', 	strval(VirusTotalAPIV2::ERROR_FILE_NOT_CHECKED), 'int')
+				new QueryUpdate('status', 	strval(VirusTotalAPIV2::ERROR_FILE_NOT_CHECKED), 'int'),
+				new QueryUpdate('total', 	'0', 'int')
 		));
 		$queryobj->addTable($table_virustotal);	
 		$results = $database->Execute($queryobj);
@@ -89,7 +90,7 @@ class VirusTotal extends IModule
 		//data[query] is querybuilder	
 		//data[database] is mysqli handler	
 		$table_virustotal = new QueryTable('samples_virustotal');
-		$table_virustotal->setSelect(array('link' => 'virustotal_link', 'scan_id' => 'virustotal_scan_id', 'score' => 'virustotal_score', 'status' => 'virustotal_status'));
+		$table_virustotal->setSelect(array('link' => 'virustotal_link', 'scan_id' => 'virustotal_scan_id', 'score' => 'virustotal_score', 'status' => 'virustotal_status', 'total' => 'virustotal_total'));
 		$table_virustotal->setJoinType('LEFT');
 		$table_virustotal->addJoinWhere(new QueryWhere('md5', 'samples.md5', '=', 'field'));
 		
@@ -111,7 +112,7 @@ class VirusTotal extends IModule
 		foreach($data['results'] as &$result)
 		{
 			$result["virustotal_score"]     	= (int)$result["virustotal_score"];
-	        $result["virustotal_status"] 		= (int)$result["virustotal_status"];
+	        	$result["virustotal_status"] 		= (int)$result["virustotal_status"];
 		}
 	}
 	
@@ -227,6 +228,8 @@ class VirusTotal extends IModule
 		$payload->status 	= $file->virustotal_status;
 		$payload->score 	= $file->virustotal_score;
 		$payload->link		= $file->virustotal_link;
+		// added on
+		$payload->total		= $file->virustotal_total;
 		
 		$data->response(json_encode($payload),200);
 		return True;
@@ -264,7 +267,8 @@ class VirusTotal extends IModule
 				new QueryUpdate('link', 	$database->escape_string($file->virustotal_link)),
 				new QueryUpdate('scan_id', 	$database->escape_string($file->virustotal_scan_id)),
 				new QueryUpdate('score', 	$file->virustotal_score, 'int'),
-				new QueryUpdate('status', 	$file->virustotal_status, 'int')
+				new QueryUpdate('status', 	$file->virustotal_status, 'int'),
+				new QueryUpdate('total', 	$file->virustotal_total, 'int')
 		));
 		$table_virustotal->addWhere(new QueryWhere('md5', $database->escape_string($file->md5), '='));
 		$queryobj->addTable($table_virustotal);	
@@ -320,9 +324,10 @@ class VirusTotal extends IModule
 		$success 					= False;
 		$is_pending_analysis 		= isset($file->virustotal_status) && $file->virustotal_status == VirusTotalAPIV2::ERROR_FILE_BEING_ANALYZED;
 		
-		$file->virustotal_score 	= 0;
-		$file->virustotal_link  	= '';
-		$file->virustotal_status	= VirusTotalAPIV2::ERROR_FILE_NOT_CHECKED;
+		$file->virustotal_score  = 0;
+		$file->virustotal_total  = 0;
+		$file->virustotal_link   = '';
+		$file->virustotal_status = VirusTotalAPIV2::ERROR_FILE_NOT_CHECKED;
 					
 		// Check size
 		if ($file->size >= 30000000) // VT limit is 32MB
@@ -369,7 +374,10 @@ class VirusTotal extends IModule
 			else if ($report->response_code == VirusTotalAPIV2::ERROR_FILE_FOUND && isset($report->permalink))
 			{				
 				//Results					
-				if(isset($report->positives)) 	$file->virustotal_score 	= $report->positives;
+				if(isset($report->positives))  {
+					$file->virustotal_score = $report->positives;
+					$file->virustotal_total = $report->total;
+				}
 				if(isset($report->permalink)) 	$file->virustotal_link 		= $report->permalink;					
 				if(isset($report->scan_id)) 	$file->virustotal_scan_id  	= $report->scan_id;
 				$file->virustotal_status = VirusTotalAPIV2::ERROR_FILE_FOUND;
@@ -405,7 +413,8 @@ class VirusTotal extends IModule
 		  `link` text NOT NULL,
 		  `scan_id` text NOT NULL,
 		  `score` int(11) NOT NULL,
-		  `status` int(11) NOT NULL
+		  `status` int(11) NOT NULL,
+		  `total` int(11) NOT NULL,
 		) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 		";	
 		

@@ -486,7 +486,10 @@ console.log("i am doing file uplaod stuff");
 						{% } else if (file.virustotal_score >= 10 && file.virustotal_score < 20) { %}
 							<a href="{%=file.virustotal_link%}" id="vt_score_link_{%=file.md5%}" target="_blank" data-toggle="tooltip" title="VirusTotal score: {%=file.virustotal_score%}" ><span id="vt_score_{%=file.md5%}" class="label label-warning">{%=file.virustotal_score%}/55</span></a>	
 						{% } else { %}
-							<a href="{%=file.virustotal_link%}" id="vt_score_link_{%=file.md5%}" target="_blank" data-toggle="tooltip" title="VirusTotal score: {%=file.virustotal_score%}" ><span id="vt_score_{%=file.md5%}" class="label label-danger">{%=file.virustotal_score%}/55</span></a>	
+						<!-- I edited stuff here
+						//
+						// {%=file.virustotal_total%} --> 
+							<a href="{%=file.virustotal_link%}" id="vt_score_link_{%=file.md5%}" target="_blank" data-toggle="tooltip" title="VirusTotal score: {%=file.virustotal_score%}" ><span id="vt_score_{%=file.md5%}" class="label label-danger">{%=file.virustotal_score%}/{%=file.virustotal_total%}</span></a>	
 						{% } %}
 					{% } else if (file.virustotal_status == 0) { %}
 						<a href="#" id="vt_score_link_{%=file.md5%}" target="_blank" data-toggle="tooltip" title="VirusTotal score: File unknown" ><span id="vt_score_{%=file.md5%}" class="label label-warning">Unknown</span></a>						

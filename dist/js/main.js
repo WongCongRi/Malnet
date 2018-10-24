@@ -7,7 +7,7 @@ var filters = null;
 // ==================================================
 // Helpers
 
-function formatFileSize(bytes) 
+function formatFileSize(bytes)
 {
 	if (typeof bytes !== 'number') {
 		return '';
@@ -29,20 +29,20 @@ function hexView(result /*Uint8Array*/, row_width)
 	{
 		var prefix = ' ';
 		var prefix_ascii = '';
-		if (i % row_width) {;}	
+		if (i % row_width) {;}
 		else {
-			prefix = (i == 0 ? '' : ' | ' + ascii_row + '\n') + (1e7 + (+i).toString(16)).slice(-8) + ' | ';	
+			prefix = (i == 0 ? '' : ' | ' + ascii_row + '\n') + (1e7 + (+i).toString(16)).slice(-8) + ' | ';
 			prefix_ascii = '';
 			ascii_row  = '';
 		}
-		var value_hex = (0+u[i].toString(16)).slice(-2);			
+		var value_hex = (0+u[i].toString(16)).slice(-2);
 		var value_ascii = '.';
 		if (u[i] >= 0x20 && u[i] <= 0x7E) {
 			value_ascii = String.fromCharCode(u[i]).slice(-1);
-		}				
+		}
 		ascii_row += prefix_ascii + value_ascii;
 		h += prefix + value_hex;
-	}				
+	}
 	return h + ' | ' + ascii_row + '\n';
 }
 
@@ -53,10 +53,10 @@ function update_vendor(hash_val, vendor_val, onSuccess, onFailure)
 {
 	return $.ajax({
 		url: 'api.php?action=updatefile',
-		dataType: 'json',	
-		data: {hash: hash_val, vendor: vendor_val},	
+		dataType: 'json',
+		data: {hash: hash_val, vendor: vendor_val},
 		type: 'post',
-		success: function() { 
+		success: function() {
             if (onSuccess) onSuccess();
 		},
         error: function(xhr, textStatus, errorThrown){
@@ -69,10 +69,10 @@ function update_user(hash_val, user_val, onSuccess, onFailure)
 {
 	return $.ajax({
 		url: 'api.php?action=updatefile',
-		dataType: 'json',	
-		data: {hash: hash_val, new_user: user_val},	
+		dataType: 'json',
+		data: {hash: hash_val, new_user: user_val},
 		type: 'post',
-		success: function() { 
+		success: function() {
             if (onSuccess) onSuccess();
 		},
         error: function(xhr, textStatus, errorThrown){
@@ -85,10 +85,10 @@ function update_comment(hash_val, comment_val, onSuccess, onFailure)
 {
 	return $.ajax({
 		url: 'api.php?action=updatefile',
-		dataType: 'json',	
-		data: {hash: hash_val, comment: comment_val},	
+		dataType: 'json',
+		data: {hash: hash_val, comment: comment_val},
 		type: 'post',
-		success: function() { 
+		success: function() {
             if (onSuccess) onSuccess();
 		},
         error: function(xhr, textStatus, errorThrown){
@@ -101,10 +101,10 @@ function update_urls(hash_val, urls_val, onSuccess, onFailure)
 {
 	return $.ajax({
 		url: 'api.php?action=updatefile',
-		dataType: 'json',	
-		data: {hash: hash_val, urls: urls_val},	
+		dataType: 'json',
+		data: {hash: hash_val, urls: urls_val},
 		type: 'post',
-		success: function() { 
+		success: function() {
             if (onSuccess) onSuccess();
 		},
         error: function(xhr, textStatus, errorThrown){
@@ -117,14 +117,14 @@ function start_virustotal_scan(hash_val, onSuccess, onFailure)
 {
 	return $.ajax({
 		url: 'api.php?action=virustotalscan',
-		data: {hash: hash_val},	
-		type: 'post',			
-		dataType: 'json',		
-		success: function(data) { 
-			if (onSuccess) onSuccess(data); 		
+		data: {hash: hash_val},
+		type: 'post',
+		dataType: 'json',
+		success: function(data) {
+			if (onSuccess) onSuccess(data);
 		},
         error: function(xhr, textStatus, errorThrown){
-        	if (onFailure) onFailure();            
+        	if (onFailure) onFailure();
         }
 	});
 }
@@ -132,15 +132,15 @@ function start_virustotal_scan(hash_val, onSuccess, onFailure)
 function start_cuckoo_scan(hash_val, machine, scan_options, onSuccess, onFailure)
 {
 	return $.ajax({
-		url: 'api.php?action=cuckooscan',	
-		data: {hash: hash_val, machine: machine, scan_options: scan_options},	
-		type: 'post',			
-		dataType: 'json',		
-		success: function(data) { 
-			if (onSuccess) onSuccess(data);            
+		url: 'api.php?action=cuckooscan',
+		data: {hash: hash_val, machine: machine, scan_options: scan_options},
+		type: 'post',
+		dataType: 'json',
+		success: function(data) {
+			if (onSuccess) onSuccess(data);
 		},
         error: function(xhr, textStatus, errorThrown){
-        	if (onFailure) onFailure();             
+        	if (onFailure) onFailure();
         }
 	});
 }
@@ -149,14 +149,14 @@ function send_vt_comment(hash_val, comment_val, onSuccess, onFailure)
 {
 	return $.ajax({
 		url: 'api.php?action=virustotalcomment',
-		dataType: 'json',	
-		data: {hash: hash_val, comment: comment_val},	
-		type: 'post',				
-		success: function() { 
-			if (onSuccess) onSuccess(); 			
+		dataType: 'json',
+		data: {hash: hash_val, comment: comment_val},
+		type: 'post',
+		success: function() {
+			if (onSuccess) onSuccess();
 		},
         error: function(xhr, textStatus, errorThrown){
-        	if (onFailure) onFailure();             
+        	if (onFailure) onFailure();
         }
 	});
 }
@@ -166,12 +166,12 @@ function get_storage_info(onSuccess, onFailure)
 	return $.ajax({
 		url: 'api.php?action=getstorageinfo',
 		dataType: 'json',
-		type: 'get',				
-		success: function(data) { 
-			if (onSuccess) onSuccess(data); 				
+		type: 'get',
+		success: function(data) {
+			if (onSuccess) onSuccess(data);
 		},
 		error: function(xhr, textStatus, errorThrown){
-        	if (onFailure) onFailure();             
+        	if (onFailure) onFailure();
         }
 	});
 }
@@ -181,12 +181,12 @@ function get_cuckoomachines(onSuccess, onFailure)
 	return $.ajax({
 		url: 'api.php?action=cuckoogetmachines',
 		dataType: 'json',
-		type: 'get',				
-		success: function(data) { 
-			if (onSuccess) onSuccess(data); 				
+		type: 'get',
+		success: function(data) {
+			if (onSuccess) onSuccess(data);
 		},
 		error: function(xhr, textStatus, errorThrown){
-        	if (onFailure) onFailure();             
+        	if (onFailure) onFailure();
         }
 	});
 }
@@ -196,12 +196,12 @@ function get_cuckootasks(onSuccess, onFailure)
 	return $.ajax({
 		url: 'api.php?action=cuckoogettasks',
 		dataType: 'json',
-		type: 'get',				
-		success: function(data) { 
-			if (onSuccess) onSuccess(data); 				
+		type: 'get',
+		success: function(data) {
+			if (onSuccess) onSuccess(data);
 		},
 		error: function(xhr, textStatus, errorThrown){
-        	if (onFailure) onFailure();             
+        	if (onFailure) onFailure();
         }
 	});
 }
@@ -210,14 +210,14 @@ function add_favorite(hash_val, fav_val, onSuccess, onFailure)
 {
 	return $.ajax({
 		url: 'api.php?action=updatefile',
-		dataType: 'json',		
-		data: {hash: hash_val, favorite: fav_val},	
-		type: 'post',				
-		success: function() { 
-			if (onSuccess) onSuccess(); 			
+		dataType: 'json',
+		data: {hash: hash_val, favorite: fav_val},
+		type: 'post',
+		success: function() {
+			if (onSuccess) onSuccess();
 		},
         error: function(xhr, textStatus, errorThrown){
-        	if (onFailure) onFailure();             
+        	if (onFailure) onFailure();
         }
 	});
 }
@@ -226,14 +226,14 @@ function add_lock(hash_val, lock_val, onSuccess, onFailure)
 {
 	return $.ajax({
 		url: 'api.php?action=updatefile',
-		dataType: 'json',		
-		data: {hash: hash_val, lock: lock_val},	
-		type: 'post',				
-		success: function() { 
-			if (onSuccess) onSuccess(); 			
+		dataType: 'json',
+		data: {hash: hash_val, lock: lock_val},
+		type: 'post',
+		success: function() {
+			if (onSuccess) onSuccess();
 		},
         error: function(xhr, textStatus, errorThrown){
-        	if (onFailure) onFailure();             
+        	if (onFailure) onFailure();
         }
 	});
 }
@@ -242,18 +242,18 @@ function get_file(hash_val, onSuccess, onFailure)
 {
 	return $.ajax({
 		url: 'api.php?action=getfile',
-		dataType: 'json',		
-		data: {hash: hash_val},	
-		type: 'get',		
-		success: function(data) { 
+		dataType: 'json',
+		data: {hash: hash_val},
+		type: 'get',
+		success: function(data) {
 			if (!data.file) {
 				if (onFailure) onFailure();
 			}
-			else if (onSuccess) 
-				onSuccess(data); 			
+			else if (onSuccess)
+				onSuccess(data);
 		},
         error: function(xhr, textStatus, errorThrown){
-        	if (onFailure) onFailure();             
+        	if (onFailure) onFailure();
         }
 	});
 }
@@ -262,13 +262,13 @@ function delete_file(url, method, onSuccess, onFailure)
 {
 	return $.ajax({
 		url: url,
-		dataType: 'json',		
-		type: method,		
-		success: function(data) { 
-			if (onSuccess) onSuccess(data); 			
+		dataType: 'json',
+		type: method,
+		success: function(data) {
+			if (onSuccess) onSuccess(data);
 		},
         error: function(xhr, textStatus, errorThrown){
-        	if (onFailure) onFailure();             
+        	if (onFailure) onFailure();
         }
 	});
 }
@@ -278,12 +278,12 @@ function get_users(onSuccess, onFailure)
 	return $.ajax({
 		url: 'api.php?action=getusers',
 		dataType: 'json',
-		type: 'get',				
-		success: function(data) { 
-			if (onSuccess) onSuccess(data); 				
+		type: 'get',
+		success: function(data) {
+			if (onSuccess) onSuccess(data);
 		},
 		error: function(xhr, textStatus, errorThrown){
-        	if (onFailure) onFailure();             
+        	if (onFailure) onFailure();
         }
 	});
 }
@@ -291,14 +291,14 @@ function get_users(onSuccess, onFailure)
 function start_pedata_scan(hash_val, onSuccess, onFailure)
 {
 	return $.ajax({
-		url: 'api.php?action=pedatascan',	
-		data: {hash: hash_val},	
-		type: 'post',				
-		success: function() { 
-			if (onSuccess) onSuccess();            
+		url: 'api.php?action=pedatascan',
+		data: {hash: hash_val},
+		type: 'post',
+		success: function() {
+			if (onSuccess) onSuccess();
 		},
         error: function(xhr, textStatus, errorThrown){
-        	if (onFailure) onFailure();             
+        	if (onFailure) onFailure();
         }
 	});
 }
@@ -306,14 +306,14 @@ function start_pedata_scan(hash_val, onSuccess, onFailure)
 function start_officedata_scan(hash_val, onSuccess, onFailure)
 {
 	return $.ajax({
-		url: 'api.php?action=officedatascan',	
-		data: {hash: hash_val},	
-		type: 'post',				
-		success: function() { 
-			if (onSuccess) onSuccess();            
+		url: 'api.php?action=officedatascan',
+		data: {hash: hash_val},
+		type: 'post',
+		success: function() {
+			if (onSuccess) onSuccess();
 		},
         error: function(xhr, textStatus, errorThrown){
-        	if (onFailure) onFailure();             
+        	if (onFailure) onFailure();
         }
 	});
 }
@@ -321,14 +321,14 @@ function start_officedata_scan(hash_val, onSuccess, onFailure)
 function start_pdfdata_scan(hash_val, onSuccess, onFailure)
 {
 	return $.ajax({
-		url: 'api.php?action=pdfdatascan',	
-		data: {hash: hash_val},	
-		type: 'post',				
-		success: function() { 
-			if (onSuccess) onSuccess();            
+		url: 'api.php?action=pdfdatascan',
+		data: {hash: hash_val},
+		type: 'post',
+		success: function() {
+			if (onSuccess) onSuccess();
 		},
         error: function(xhr, textStatus, errorThrown){
-        	if (onFailure) onFailure();             
+        	if (onFailure) onFailure();
         }
 	});
 }
@@ -338,13 +338,13 @@ function get_pedata(hash_val, onSuccess, onFailure)
 	return $.ajax({
 		url: 'api.php?action=getpedata',
 		dataType: 'json',
-		data: {hash: hash_val},	
-		type: 'get',				
-		success: function(data) { 
-			if (onSuccess) onSuccess(data); 				
+		data: {hash: hash_val},
+		type: 'get',
+		success: function(data) {
+			if (onSuccess) onSuccess(data);
 		},
 		error: function(xhr, textStatus, errorThrown){
-        	if (onFailure) onFailure();             
+        	if (onFailure) onFailure();
         }
 	});
 }
@@ -354,13 +354,13 @@ function get_officedata(hash_val, onSuccess, onFailure)
 	return $.ajax({
 		url: 'api.php?action=getofficedata',
 		dataType: 'json',
-		data: {hash: hash_val},	
-		type: 'get',				
-		success: function(data) { 
-			if (onSuccess) onSuccess(data); 				
+		data: {hash: hash_val},
+		type: 'get',
+		success: function(data) {
+			if (onSuccess) onSuccess(data);
 		},
 		error: function(xhr, textStatus, errorThrown){
-        	if (onFailure) onFailure();             
+        	if (onFailure) onFailure();
         }
 	});
 }
@@ -370,13 +370,13 @@ function get_pdfdata(hash_val, onSuccess, onFailure)
 	return $.ajax({
 		url: 'api.php?action=getpdfdata',
 		dataType: 'json',
-		data: {hash: hash_val},	
-		type: 'get',				
-		success: function(data) { 
-			if (onSuccess) onSuccess(data); 				
+		data: {hash: hash_val},
+		type: 'get',
+		success: function(data) {
+			if (onSuccess) onSuccess(data);
 		},
 		error: function(xhr, textStatus, errorThrown){
-        	if (onFailure) onFailure();             
+        	if (onFailure) onFailure();
         }
 	});
 }
@@ -386,13 +386,13 @@ function pdf_submit_stream(hash_val, stream_id, onSuccess, onFailure)
 	return $.ajax({
 		url: 'api.php?action=submitpdfstream',
 		dataType: 'json',
-		data: {hash: hash_val, stream_id: stream_id},	
-		type: 'get',				
-		success: function(data) { 
-			if (onSuccess) onSuccess(data); 				
+		data: {hash: hash_val, stream_id: stream_id},
+		type: 'get',
+		success: function(data) {
+			if (onSuccess) onSuccess(data);
 		},
 		error: function(xhr, textStatus, errorThrown){
-        	if (onFailure) onFailure();             
+        	if (onFailure) onFailure();
         }
 	});
 }
@@ -406,17 +406,17 @@ function pdf_dump_stream(hash_val, stream_id, onSuccess, onFailure)
 	} else {
 	    //Browser has blocked it
 	    alert('Please allow popups for this website');
-	}	
+	}
 	/*return $.ajax({
 		url: 'api.php?action=dumppdfstream',
 		dataType: 'json',
-		data: {hash: hash_val, stream_id: stream_id},	
-		type: 'get',				
-		success: function(data) { 
-			if (onSuccess) onSuccess(data); 				
+		data: {hash: hash_val, stream_id: stream_id},
+		type: 'get',
+		success: function(data) {
+			if (onSuccess) onSuccess(data);
 		},
 		error: function(xhr, textStatus, errorThrown){
-        	if (onFailure) onFailure();             
+        	if (onFailure) onFailure();
         }
 	});*/
 }
@@ -426,13 +426,13 @@ function get_uploadersdata(onSuccess, onFailure)
 	return $.ajax({
 		url: 'api.php?action=getsubmissionsperuserdata',
 		dataType: 'json',
-		data: {},	
-		type: 'get',				
-		success: function(data) { 
-			if (onSuccess) onSuccess(data); 				
+		data: {},
+		type: 'get',
+		success: function(data) {
+			if (onSuccess) onSuccess(data);
 		},
 		error: function(xhr, textStatus, errorThrown){
-        	if (onFailure) onFailure();             
+        	if (onFailure) onFailure();
         }
 	});
 }
@@ -442,13 +442,13 @@ function get_tagsdata(onSuccess, onFailure)
 	return $.ajax({
 		url: 'api.php?action=gettagsdata',
 		dataType: 'json',
-		data: {},	
-		type: 'get',				
-		success: function(data) { 
-			if (onSuccess) onSuccess(data); 				
+		data: {},
+		type: 'get',
+		success: function(data) {
+			if (onSuccess) onSuccess(data);
 		},
 		error: function(xhr, textStatus, errorThrown){
-        	if (onFailure) onFailure();             
+        	if (onFailure) onFailure();
         }
 	});
 }
@@ -458,13 +458,13 @@ function get_mimedata(onSuccess, onFailure)
 	return $.ajax({
 		url: 'api.php?action=getmimedata',
 		dataType: 'json',
-		data: {},	
-		type: 'get',				
-		success: function(data) { 
-			if (onSuccess) onSuccess(data); 				
+		data: {},
+		type: 'get',
+		success: function(data) {
+			if (onSuccess) onSuccess(data);
 		},
 		error: function(xhr, textStatus, errorThrown){
-        	if (onFailure) onFailure();             
+        	if (onFailure) onFailure();
         }
 	});
 }
@@ -476,23 +476,23 @@ function get_hexdata(hash_val, onSuccess, onFailure)
 	xhr.responseType = 'arraybuffer';
 	xhr.onload = function(e) {
 	    var uInt8Array = new Uint8Array(this.response);
-	    if (onSuccess) onSuccess(uInt8Array); 		
+	    if (onSuccess) onSuccess(uInt8Array);
 	};
 	xhr.onerror = function(e) {
-		if (onFailure) onFailure();    	
+		if (onFailure) onFailure();
 	};
 	return xhr.send();
-	
+
 	/*$.ajax({
 		url: 'api.php?action=gethexdata',
 		//dataType: 'arraybuffer',
-		data: {hash: hash_val},	
-		type: 'get',				
-		success: function(data) { 
-			if (onSuccess) onSuccess(data); 				
+		data: {hash: hash_val},
+		type: 'get',
+		success: function(data) {
+			if (onSuccess) onSuccess(data);
 		},
 		error: function(xhr, textStatus, errorThrown){
-        	if (onFailure) onFailure();             
+        	if (onFailure) onFailure();
         }
 	});*/
 }
@@ -502,13 +502,13 @@ function get_bulk_download(hashes, use_password, onSuccess, onFailure)
 	// Ajax isn't able to trigger downloads
 	/*$.ajax({
 		url: 'api.php?action=bulkdownload',
-		data: {files: hashes},	
-		type: 'get',				
-		success: function(data) { 
-			if (onSuccess) onSuccess(data); 				
+		data: {files: hashes},
+		type: 'get',
+		success: function(data) {
+			if (onSuccess) onSuccess(data);
 		},
 		error: function(xhr, textStatus, errorThrown){
-        	if (onFailure) onFailure();             
+        	if (onFailure) onFailure();
         }
 	});*/
 	var hashes_request = "";
@@ -520,16 +520,16 @@ function get_bulk_download(hashes, use_password, onSuccess, onFailure)
 }
 
 // ================================================
-// Index Functions 
+// Index Functions
 
 function bulk_download(use_password)
 {
 	var hashes = [];
 	var selected = $('input[id^="select_"]:checkbox:checked');
-	for (var i = 0 ; i < selected.length; i++) {			
+	for (var i = 0 ; i < selected.length; i++) {
 		var checkbox = selected[i];
 		var id = checkbox.id;
-		var hash = id.substring("select_".length);	
+		var hash = id.substring("select_".length);
 		hashes.push(hash);
 	}
     if (hashes.length) {
@@ -549,11 +549,11 @@ function delete_sample(hash_val, url, type, withCreds)
 	return $.ajax({
         url: url,
         type: type,
-        success: function() { 
+        success: function() {
         	$("#row_"+hash_val).remove();
 		},
 		error: function(xhr, textStatus, errorThrown){
-			$("#alert").html('<div class="alert alert-danger"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><span class="glyphicon glyphicon-exclamation-sign"></span> Unable to delete file.</div>'); 
+			$("#alert").html('<div class="alert alert-danger"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><span class="glyphicon glyphicon-exclamation-sign"></span> Unable to delete file.</div>');
         }
     });
 }
@@ -570,41 +570,41 @@ function on_files_gotten(result)
 {
 	// Refresh tooltips
 	$('[data-toggle="tooltip"]').tooltip();
-	
+
 	// Refresh tags, add Ajax call for real time modification
 	if (result.files) {
-		for (var i = 0 ; i < result.files.length; i++) {			
+		for (var i = 0 ; i < result.files.length; i++) {
 			var md5 = result.files[i].md5;
 			var tags_input = $("#tags_" + md5);
-			if (tags_input) {				
+			if (tags_input) {
 				tags_input.tagsManager({
 					hiddenTagListName: tags_input.attr('id') + '_hidden',
 					tagClass: 'myTag',
 					AjaxPush: 'api.php?action=updatefile',
 					AjaxPushAllTags: true,
-					AjaxPushParameters: {hash: md5},	
+					AjaxPushParameters: {hash: md5},
 				});
-				
+
 				if (result.files[i].tags) {
 					var tags = result.files[i].tags.split(",");
-					for (var j=0, tag; tag=tags[j]; j++)				
+					for (var j=0, tag; tag=tags[j]; j++)
 						tags_input.tagsManager('pushTag', tag, true);	// ignore events so we don't call AJAX while pushing here
 				}
 				tags_input.hide();
 			}
 		}
 	}
-	
+
 	// Prevents top scrolling with clicking the buttons in dropdown-menu
     $('a[class^="menu-button-"').click(function(e) {
     	e.preventDefault();
-    });		
-    
-    // Prevents dropdown menus to stay stuck behind the table                                     
-    var dropdownMenu;                            
-    $(window).on('show.bs.dropdown', function (e) 
+    });
+
+    // Prevents dropdown menus to stay stuck behind the table
+    var dropdownMenu;
+    $(window).on('show.bs.dropdown', function (e)
     {
-        // grab the menu        
+        // grab the menu
         dropdownMenu = $(e.target).find('#dropdown-item-actions');
         var is_up = $(e.target).hasClass("dropup");
 
@@ -617,15 +617,15 @@ function on_files_gotten(result)
         // make sure to place it where it would normally go (this could be improved)
         dropdownMenu.css({
             'display': 'block',
-            'top': is_up 
-	            	? (eOffset.top - dropdownMenu.outerHeight()) 
+            'top': is_up
+	            	? (eOffset.top - dropdownMenu.outerHeight())
 	                : (eOffset.top + $(e.target).outerHeight()),
 	        'left': eOffset.left + $(e.target).outerWidth() - dropdownMenu.outerWidth(),
 	        'right': eOffset.left + $(e.target).outerWidth()
         });
     });
 
-    // and when you hide it, reattach the drop down, and hide it normally                                                   
+    // and when you hide it, reattach the drop down, and hide it normally
     $(window).on('hide.bs.dropdown', function (e) {
         $(e.target).append(dropdownMenu.detach());
         dropdownMenu.hide();
@@ -634,13 +634,13 @@ function on_files_gotten(result)
 }
 
 function get_files(page_flt)
-{	
+{
 	Pace.start();
 	current_page = page_flt;
 
 	// get filers values
-	var fav_obj         = document.getElementById("fav-descr-input"); 
-	var cuckoo_obj      = document.getElementById("cuckoo-descr-input"); 
+	var fav_obj         = document.getElementById("fav-descr-input");
+	var cuckoo_obj      = document.getElementById("cuckoo-descr-input");
 	var date_flt_val 	= !document.getElementById("date-descr-input") 		? "" : document.getElementById("date-descr-input").value;
 	var user_flt_val 	= !document.getElementById("uploader-descr-input") 	? "" : document.getElementById("uploader-descr-input").value;
 	var comment_flt_val = !document.getElementById("comment-descr-input") 	? "" : document.getElementById("comment-descr-input").value;
@@ -650,45 +650,45 @@ function get_files(page_flt)
 	var name_flt_val 	= !document.getElementById("name-descr-input") 		? "" : document.getElementById("name-descr-input").value;
 	var size_flt_val 	= !document.getElementById("size-descr-input") 		? "" : document.getElementById("size-descr-input").value;
 	var virustotal_flt_val = !document.getElementById("vt-descr-input") 	? "" : document.getElementById("vt-descr-input").value;
-	var fav_flt_val     = !fav_obj 											? "" : fav_obj.options[fav_obj.selectedIndex].value;	
-	var cuckoo_flt_val  = !cuckoo_obj 										? "" : cuckoo_obj.options[cuckoo_obj.selectedIndex].value;	
+	var fav_flt_val     = !fav_obj 											? "" : fav_obj.options[fav_obj.selectedIndex].value;
+	var cuckoo_flt_val  = !cuckoo_obj 										? "" : cuckoo_obj.options[cuckoo_obj.selectedIndex].value;
 	var tags_flt_val 	= !document.getElementById("tags-descr-input") 		? "" : document.getElementById("tags-descr-input").value;
     var urls_flt_val 	= !document.getElementById("urls-descr-input") 		? "" : document.getElementById("urls-descr-input").value;
-    
+
 	// get filters row
-	var filters_row = $("table tbody.files").find("tr#filters");	
-	var cloned_filters = undefined;	
-	
+	var filters_row = $("table tbody.files").find("tr#filters");
+	var cloned_filters = undefined;
+
 	// If filters are already here, we want to restore them after the refresh
-	var filters_exist = filters_row.length > 0;	
+	var filters_exist = filters_row.length > 0;
 	if (filters_exist) {
 		cloned_filters = filters_row.clone();
 	}
-	
+
 	// Clear all
-	$("table tbody.files").find("tr").remove();	
-	
+	$("table tbody.files").find("tr").remove();
+
 	var data_array = {};
-	if (date_flt_val) data_array["date"] 									= date_flt_val;	
+	if (date_flt_val) data_array["date"] 									= date_flt_val;
 	if (user_flt_val) data_array["user"] 									= user_flt_val;
-	if (comment_flt_val) data_array["comment"] 								= comment_flt_val;	
-	if (md5_flt_val) data_array["md5"] 										= md5_flt_val;	
-	if (sha256_flt_val) data_array["sha256"] 								= sha256_flt_val;	
-	if (vendor_flt_val) data_array["vendor"] 								= vendor_flt_val;	
-	if (name_flt_val) data_array["name"] 									= name_flt_val;	
+	if (comment_flt_val) data_array["comment"] 								= comment_flt_val;
+	if (md5_flt_val) data_array["md5"] 										= md5_flt_val;
+	if (sha256_flt_val) data_array["sha256"] 								= sha256_flt_val;
+	if (vendor_flt_val) data_array["vendor"] 								= vendor_flt_val;
+	if (name_flt_val) data_array["name"] 									= name_flt_val;
 	if (size_flt_val) data_array["size"] 									= size_flt_val;
 	if (virustotal_flt_val) data_array["virustotal"] 						= virustotal_flt_val;
 	if (cuckoo_flt_val && cuckoo_flt_val != "none") data_array["cuckoo"] 	= cuckoo_flt_val;
 	if (fav_flt_val && fav_flt_val != "none") data_array["favorite"] 		= fav_flt_val;
 	if (tags_flt_val) data_array["tags"] 									= tags_flt_val;
-    if (urls_flt_val) data_array["urls"] 									= urls_flt_val;	
+    if (urls_flt_val) data_array["urls"] 									= urls_flt_val;
 	data_array["page"] 														= page_flt;
-	
+
 	// Params filters
 	if (filters) {
-		if (filters['tag']) data_array["tags"] = filters['tag']; 
-	}	
-	
+		if (filters['tag']) data_array["tags"] = filters['tag'];
+	}
+
 	// Load existing files:
 	$('#fileupload').addClass('fileupload-processing');
 	$.ajax({
@@ -696,8 +696,8 @@ function get_files(page_flt)
 		//xhrFields: {withCredentials: true},
 		url: 'api.php?action=getfiles',
 		dataType: 'json',
-		context: $('#fileupload')[0],		
-		data: data_array,	
+		context: $('#fileupload')[0],
+		data: data_array,
 		type: 'get'
 	}).fail(function () {
 		// Log the error
@@ -711,7 +711,7 @@ function get_files(page_flt)
 	});
 }
 
-function clear_search() 
+function clear_search()
 {
     if(document.getElementById("date-descr-input")) document.getElementById("date-descr-input").value 				= "";
 	if(document.getElementById("uploader-descr-input")) document.getElementById("uploader-descr-input").value 		= "";
@@ -729,7 +729,7 @@ function clear_search()
     get_files(current_page);
 }
 
-function update_upload_count() 
+function update_upload_count()
 {
     if ($('.template-upload').length == 0)
 		$("#btn-upload-all-badge").html('');
@@ -737,7 +737,7 @@ function update_upload_count()
 		$("#btn-upload-all-badge").html($('.template-upload').length.toString());	// we need to count the current element
 }
 
-function add_file_upload_tags() 
+function add_file_upload_tags()
 {
 	// https://maxfavilli.com/jquery-tag-manager
 	$(".tm-input").tagsManager({
@@ -751,86 +751,86 @@ function add_file_upload_tags()
 
 function save_data(this_id)
 {
-	var but 			= $("#edit_" + this_id);		
+	var but 			= $("#edit_" + this_id);
 	var img 			= $("#edit_img_" + this_id);
-	var txt 			= $("#edit_text_" + this_id);	
-	
+	var txt 			= $("#edit_text_" + this_id);
+
 	// turn save button back into edit
-	but.removeClass("menu-button-save");		
-	but.addClass("menu-button-edit");	
-		
-	// Turn edit button image		
-	img.removeClass("glyphicon glyphicon-ok-circle");	
+	but.removeClass("menu-button-save");
+	but.addClass("menu-button-edit");
+
+	// Turn edit button image
+	img.removeClass("glyphicon glyphicon-ok-circle");
 	img.addClass("glyphicon glyphicon-edit");
-	
+
 	// Turn edit button text
 	txt.text("Quick Edit");
-	
-	save_row_data(this_id, 'vendor');			
-	
+
+	save_row_data(this_id, 'vendor');
+
 	var tags_input = $("#tags_" + this_id);
 	if (tags_input) tags_input.hide();
 }
 
 function save_row_data(this_id, prefix)
 {
-	var span 			= $("span#" + prefix + "_" + this_id);	
+	var span 			= $("span#" + prefix + "_" + this_id);
 	var area_edit 		= $("textarea#" + prefix + "_" + this_id);
-	var staticText 		= $("<span id='" + prefix + "_" + this_id + "' class='label label-default'/>");	
-	
+	var staticText 		= $("<span id='" + prefix + "_" + this_id + "' class='label label-default'/>");
+
 	// set vendor field in ui
-	var new_value = area_edit.val();	
+	var new_value = area_edit.val();
 	staticText.text(new_value);
-	area_edit.replaceWith(staticText);	
-	
+	area_edit.replaceWith(staticText);
+
 	// Update database
 	if (prefix == 'vendor') update_vendor(this_id, new_value);
 }
 
 function edit_data(this_id)
-{	
-	var but 			= $("#edit_" + this_id);		
+{
+	var but 			= $("#edit_" + this_id);
 	var img 			= $("#edit_img_" + this_id);
-	var txt 			= $("#edit_text_" + this_id);	
-	
-	// Save action	
+	var txt 			= $("#edit_text_" + this_id);
+
+	// Save action
 	if (but.hasClass("menu-button-save")){
 		return save_data(this_id);
-	}	
-	
-	// Turn edit button into save	
+	}
+
+	// Turn edit button into save
 	but.removeClass("menu-button-edit");
-	but.addClass("menu-button-save");	
-	
+	but.addClass("menu-button-save");
+
 	// Turn edit button image
 	img.removeClass("glyphicon glyphicon-edit");
 	img.addClass("glyphicon glyphicon-ok-circle");
-	
+
 	// Turn edit button text
-	txt.text("Save");	
-	
+	txt.text("Save");
+
 	// Switch to edit mode
-	edit_row_data(this_id, "vendor");	
-	
+	edit_row_data(this_id, "vendor");
+
 	var tags_input = $("#tags_" + this_id);
 	if (tags_input) tags_input.show();
-	
+
 	// Give focus
 	var area_edit = $("textarea#vendor_" + this_id);
 	area_edit.focus();
 };
 
 function edit_row_data(this_id, prefix)
-{	
-	var span 			= $("span#" + prefix + "_" + this_id);				
-	var remaining 		= span.parent().width() - span.width() - 40;			
-	var editableText 	= $("<textarea id='" + prefix + "_" + this_id + "' style='width: " + remaining.toString() + "px; height: 25px;'/>");	
-	
-	// change field into a textbox		
-	var text = span.html();							
+{
+	var span 			= $("span#" + prefix + "_" + this_id);
+	var remaining 		= span.parent().width() - span.width() - 40;
+	var editableText 	= $("<textarea id='" + prefix + "_" + this_id + "' style='width: " + remaining.toString() + "px; height: 25px;'/>");
+
+	// change field into a textbox
+	var text = span.html();
 	editableText.val(text);
 	editableText.attr('rows', '1');
-	span.replaceWith(editableText);			
+	span.replaceWith(editableText);
 };
 
 //=========================================================
@@ -840,8 +840,8 @@ function vt_comment()
 {
     var this_id         = $("#body_vt_comment").attr("data-id");
 	var area_edit 		= $("#t_commentvt");
-	var modal			= $("#commentVTModal");				
-	var comment 		= area_edit.val();				
+	var modal			= $("#commentVTModal");
+	var comment 		= area_edit.val();
 	if (comment != '') {
 		send_vt_comment(this_id, comment);
 	}
@@ -853,22 +853,25 @@ function vt_comment()
 
 function vt_scan(this_id)
 {
-	start_virustotal_scan(this_id, 
+	start_virustotal_scan(this_id,
 		function(data) { /* On success */
 	        var span = $("#vt_score_" + this_id);
 	        var link = $("#vt_score_link_" + this_id);
 	        span.removeClass("label label-default label-success label-danger label-warning label-primary");
-	        
+
 	        // Results
 	        if (data.status == 1) {
 	        	if (data.score < 10)
-	        		span.addClass("label label-success");	
+	        		span.addClass("label label-success");
 	        	else if (data.score >= 10 && data.score < 20)
-	        		span.addClass("label label-warning");	
-	        	else 
+	        		span.addClass("label label-warning");
+	        	else
 	        		span.addClass("label label-danger");
 	        	span.attr("title", "VirusTotal score: " + data.score);
-	        	span.text(data.score + "/55");
+			// scanned result + total scanner thingies
+			console.log(data.total);
+			console.log(data.score);
+	        	span.text(data.score + '/67');
 	        	link.attr("href", data.link ? data.link : "#");
 	        	link.attr("title", "VirusTotal score: " + data.score);
 	        	link.attr("data-original-title", "VirusTotal score: " + data.score);
@@ -917,20 +920,20 @@ function vt_scan(this_id)
 		function() { /* On failure */
 			$("#alert").html('<div class="alert alert-danger"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><span class="glyphicon glyphicon-exclamation-sign"></span> Unable to submit virustotal analysis.</div>');
 		}
-	);	
+	);
 };
 
 function cuckoo_scan_modal()
 {
     var this_id         = $("#body_cuckoo_submit").attr("data-id");
-	var modal			= $("#submitCuckooModal");			
+	var modal			= $("#submitCuckooModal");
 	var machine 		= $('#select_cuckoo_machine').find(":selected").text();
-	
+
 	var scan_options = [];
 	$('#select_cuckoo_options input:checked').each(function() {
 		scan_options.push($(this).attr('id'));
-	});			
-	
+	});
+
 	cuckoo_scan(this_id, machine, scan_options);
 	modal.modal('hide');
 }
@@ -938,29 +941,29 @@ function cuckoo_scan_modal()
 function sample_cuckoo_scan_modal()
 {
     var this_id         = $("#body_cuckoo_submit").attr("data-id");
-	var modal			= $("#submitCuckooModal");			
+	var modal			= $("#submitCuckooModal");
 	var machine 		= $('#select_cuckoo_machine').find(":selected").text();
-	
+
 	var scan_options = [];
 	$('#select_cuckoo_options input:checked').each(function() {
 		scan_options.push($(this).attr('id'));
-	});			
-	
+	});
+
 	sample_cuckoo_scan(this_id, machine, scan_options);
 	modal.modal('hide');
 }
 
 function cuckoo_scan(this_id, machine, scan_options)
-{	
+{
 	start_cuckoo_scan(this_id, machine, scan_options,
 		function (data) { /* On success */
 			var span = $("#ck_" + this_id);
 	        var link = $("#ck_link" + this_id);
 	        span.removeClass("label label-default label-success label-danger label-warning label-primary");
-	        
+
 	        // Results
 	        if (data.status == 0) {
-	        	span.addClass("label label-success");	
+	        	span.addClass("label label-success");
 	        	span.attr("title", "Cuckoo results");
 	        	span.text("Results");
 	        	link.attr("href", data.link ? data.link : "#");
@@ -987,32 +990,32 @@ function cuckoo_scan(this_id, machine, scan_options)
 		function () { /* On failure */
 			$("#alert").html('<div class="alert alert-danger"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><span class="glyphicon glyphicon-exclamation-sign"></span> Unable to submit cuckoo scan.</div>');
 		}
-	);	
+	);
 };
 
 //=========================================================
 // Favorite
 
-function favorite(this_id) 
+function favorite(this_id)
 {
 	var star = $("#fav_star_" + this_id);
 	if (star.hasClass("glyphicon-star-empty")) {
 		// add fav
 		star.removeClass("glyphicon-star-empty");
-		star.addClass("glyphicon-star");					
-		add_favorite(this_id, true);	
+		star.addClass("glyphicon-star");
+		add_favorite(this_id, true);
 	} else {
 		// remove fav
 		star.removeClass("glyphicon-star");
 		star.addClass("glyphicon-star-empty");
-		add_favorite(this_id, false);		
-	}	
+		add_favorite(this_id, false);
+	}
 }
 
 //=========================================================
 // Urls
 
-function modal_add_url_area() 
+function modal_add_url_area()
 {
 	var template = $('#urltemplate');
 		clone    = template
@@ -1023,44 +1026,44 @@ function modal_add_url_area()
                     .insertBefore(template);
 }
 
-function modal_remove_url_area(this_obj) 
+function modal_remove_url_area(this_obj)
 {
 	var row    = this_obj.parents("[id^=url_node]");
-	
+
 	// Remove element containing the option
 	row.remove();
 }
 
-function send_urls(hash) 
+function send_urls(hash)
 {
 	// Get all URLs in form of url1,url2,...
-    
+
 	var urls 		= '';
-	var urls_obj 	= $("div[id^=url_node]");				
-	for ( var i = 0, l = urls_obj.length; i < l; i++ ) 
+	var urls_obj 	= $("div[id^=url_node]");
+	for ( var i = 0, l = urls_obj.length; i < l; i++ )
 	{
 		var input_name 	= $(urls_obj[i]).find('input[id^=name_]');
-		var name 		= input_name.val();		
+		var name 		= input_name.val();
 		var input_url 	= $(urls_obj[i]).find('input[id^=url_]');
-		var url 		= input_url.val();		
+		var url 		= input_url.val();
 		if (url != '') {
 			if (urls != '') urls +=',';
 			urls += name + '|'+ url;
-		}				
-	}			
+		}
+	}
 	// Update database
 	return update_urls(hash, urls);
 }
 
 function modal_send_urls()
 {
-	var this_id = $("#body_urls").attr("data-id");	
-	send_urls(this_id);	
+	var this_id = $("#body_urls").attr("data-id");
+	send_urls(this_id);
 	$("#urls_" + this_id).attr("data-urls-value", urls);
-	
+
 	// Close modal
 	var modal			= $("div#urlModal");
-	modal.modal('hide');  
+	modal.modal('hide');
 }
 
 //=========================================================
@@ -1070,19 +1073,19 @@ function sample_delete()
 {
 	url 	= $("#sample-remove").attr("data-delete-url");
 	type 	= $("#sample-remove").attr("data-delete-type");
-	
-	delete_file(url, type, 
+
+	delete_file(url, type,
 		function() {
 			$("#alert").html('<div class="alert alert-success"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><span class="glyphicon glyphicon-info-sign"></span> Sample Deleted.</div>');
 		},
 		function() {
 			$("#alert").html('<div class="alert alert-danger"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><span class="glyphicon glyphicon-exclamation-sign"></span> Unable to delete sample.</div>');
-		}		
+		}
 	);
 }
 
 function sample_update(hash)
-{	
+{
 	$.when(
 	update_comment(hash, tinymce.get('t_comment').getContent(), null, null),
 	update_vendor(hash, $("#sample-vendor").val(), null, null),
@@ -1091,7 +1094,7 @@ function sample_update(hash)
 	.done(function(a1, a2, a3, a4) {
 		$("#alert").html('<div class="alert alert-success"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><span class="glyphicon glyphicon-info-sign"></span> Information Updated.</div>');
 	}).fail(function(a1, a2, a3, a4) {
-		$("#alert").html('<div class="alert alert-danger"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><span class="glyphicon glyphicon-exclamation-sign"></span> Unable to update information: ' 
+		$("#alert").html('<div class="alert alert-danger"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><span class="glyphicon glyphicon-exclamation-sign"></span> Unable to update information: '
 			+ a1.statusText + ' (' + a1.responseText + ')</div>');
 	});
 }
@@ -1128,19 +1131,19 @@ function toggle_lock(hash)
 
 function sample_pdf_submit_stream(hash, stream_id)
 {
-	return pdf_submit_stream(hash, stream_id, 
+	return pdf_submit_stream(hash, stream_id,
 		function(data) { /* On success */
 			$("#alert").html('<div class="alert alert-success"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><span class="glyphicon glyphicon-info-sign"></span> Stream submitted as file.</div>');
 		},
 		function() { /* On failure */
 			$("#alert").html('<div class="alert alert-danger"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><span class="glyphicon glyphicon-exclamation-sign"></span> Unable to submit stream.</div>');
 		}
-	);	
+	);
 }
 
 function sample_vt_scan(hash)
 {
-	start_virustotal_scan(hash, 
+	start_virustotal_scan(hash,
 		function(data) { /* On success */
 			$("#alert").html('<div class="alert alert-success"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><span class="glyphicon glyphicon-info-sign"></span> Sample sent for analysis.</div>');
 			sample_reload(hash, false);
@@ -1148,12 +1151,12 @@ function sample_vt_scan(hash)
 		function() { /* On failure */
 			$("#alert").html('<div class="alert alert-danger"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><span class="glyphicon glyphicon-exclamation-sign"></span> Unable to send sample for analysis.</div>');
 		}
-	);	
+	);
 }
 
 function sample_cuckoo_scan(hash, machine, scan_options)
 {
-	start_cuckoo_scan(hash, machine, scan_options, 
+	start_cuckoo_scan(hash, machine, scan_options,
 		function(data) { /* On success */
 			$("#alert").html('<div class="alert alert-success"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><span class="glyphicon glyphicon-info-sign"></span> Sample sent for analysis.</div>');
 			sample_reload(hash, false);
@@ -1161,43 +1164,43 @@ function sample_cuckoo_scan(hash, machine, scan_options)
 		function() { /* On failure */
 			$("#alert").html('<div class="alert alert-danger"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><span class="glyphicon glyphicon-exclamation-sign"></span> Unable to send sample for analysis.</div>');
 		}
-	);	
+	);
 }
 
 function sample_pedata_scan(hash)
 {
-	start_pedata_scan(hash, 
+	start_pedata_scan(hash,
 		function() { /* On success */
 			$("#alert").html('<div class="alert alert-success"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><span class="glyphicon glyphicon-info-sign"></span> Sample sent for PE data scan.</div>');
 		},
 		function() { /* On failure */
 			$("#alert").html('<div class="alert alert-danger"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><span class="glyphicon glyphicon-exclamation-sign"></span> Unable to send sample for pe data analysis.</div>');
 		}
-	);	
+	);
 }
 
 function sample_officedata_scan(hash)
 {
-	start_officedata_scan(hash, 
+	start_officedata_scan(hash,
 		function() { /* On success */
 			$("#alert").html('<div class="alert alert-success"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><span class="glyphicon glyphicon-info-sign"></span> Sample sent for Office data scan.</div>');
 		},
 		function() { /* On failure */
 			$("#alert").html('<div class="alert alert-danger"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><span class="glyphicon glyphicon-exclamation-sign"></span> Unable to send sample for office data analysis.</div>');
 		}
-	);	
+	);
 }
 
 function sample_pdfdata_scan(hash)
 {
-	start_pdfdata_scan(hash, 
+	start_pdfdata_scan(hash,
 		function() { /* On success */
 			$("#alert").html('<div class="alert alert-success"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><span class="glyphicon glyphicon-info-sign"></span> Sample sent for PDF data scan.</div>');
 		},
 		function() { /* On failure */
 			$("#alert").html('<div class="alert alert-danger"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><span class="glyphicon glyphicon-exclamation-sign"></span> Unable to send sample for pdf data analysis.</div>');
 		}
-	);	
+	);
 }
 
 function pedata_reload(hash)
@@ -1207,23 +1210,23 @@ function pedata_reload(hash)
 			$("#pe-div-warnings").hide();
 			$("#div-peheaders").hide();
 			$("#alert").html('<div class="alert alert-warning"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><span class="glyphicon glyphicon-exclamation-sign"></span> PE Exception: ' + data.error + '</div>');
-		} else {		
-			
+		} else {
+
 			//========================= Warnings ===============================
 			if (!data.data["Parsing Warnings"] || data.data["Parsing Warnings"].length == 0)
 				$("#pe-div-warnings").hide();
 			else {
 				var arrayLength = data.data["Parsing Warnings"].length;
 				$("#pe-div-warnings-content").empty();
-				
-				var warnings_count = arrayLength;				
+
+				var warnings_count = arrayLength;
 				$("#pe-div-warnings-content").append('<li class="list-group-item list-group-item-header list-group-item-warning"><h4><span class="glyphicon glyphicon-exclamation-sign"></span> Warning(s) <span id="pe-warnings-badge" class="badge pull-right badge-warning">0</span></h4></li>');
 				for (var i = 0; i < arrayLength; i++) {
 				    var warn_message = data.data["Parsing Warnings"][i];
 				    var warnings_content = '<li class="list-group-item list-group-item-group">' + warn_message + '</li>';
 				    $("#pe-div-warnings-content").append(warnings_content);
-				}			
-				
+				}
+
 				// Digisig warnings
 				if (data.data["digisig"] && data.data["digisig"]["warnings"] && data.data["digisig"]["warnings"].length > 0) {
 					arrayLength = data.data["digisig"]["warnings"].length;
@@ -1234,11 +1237,11 @@ function pedata_reload(hash)
 					    $("#pe-div-warnings-content").append(warnings_content);
 					}
 				}
-				
+
 				$("#pe-warnings-badge").html(warnings_count.toString());
 				$("#pe-div-warnings").show();
 			}
-			
+
 			//========================= DOS Header ===============================
 			$("#dosheader tbody").remove();
 			if (data.data["DOS_HEADER"]) {
@@ -1246,7 +1249,7 @@ function pedata_reload(hash)
 					$("#dosheader").append("<tr><td>"+key+"</td><td>"+value.Value+"</td></tr>");
 			    });
 			}
-			
+
 			//========================= File Header ===============================
 			$("#fileheader tbody").remove();
 			if (data.data["FILE_HEADER"]) {
@@ -1254,7 +1257,7 @@ function pedata_reload(hash)
 					$("#fileheader").append("<tr><td>"+key+"</td><td>"+value.Value+"</td></tr>");
 			    });
 			}
-			
+
 			//========================= Optional Header ===============================
 			$("#optionalheader tbody").remove();
 			if (data.data["OPTIONAL_HEADER"]) {
@@ -1262,7 +1265,7 @@ function pedata_reload(hash)
 					$("#optionalheader").append("<tr><td>"+key+"</td><td>"+value.Value+"</td></tr>");
 			    });
 			}
-			
+
 			//========================= Sections ===============================
 			$("#sections tbody").remove();
 			if (data.data["PE Sections"]) {
@@ -1270,7 +1273,7 @@ function pedata_reload(hash)
 				$("#sections-badge").html(data.data["PE Sections"].length.toString());
 				$.each(data.data["PE Sections"], function(index, value){
 					var name = [];
-					$.each(value.Name.Value, function(index2,value2) {   
+					$.each(value.Name.Value, function(index2,value2) {
 						name.push(value2);
 					});
 					$("#sections").append("<tr><td>"+index+"</td><td>"
@@ -1282,16 +1285,16 @@ function pedata_reload(hash)
 							+value.MD5+"</td></tr>");
 			    });
 			}
-			
+
 			//========================= Resources ===============================
 			$("#resources tbody").remove();
 			if (data.data["Resource directory"]) {
 				$("#resources").append("<tr><th>Type</th><th>Id</th><th>Lang</th><th>Sublang</th><th>Size</th></tr>");
 				$("#resources-badge").html(data.data["Resource directory"].length.toString());
-				
+
 				function iterateResourceDir(dir, parent_parent_id, parent_id) {
 					var local_id = -1;
-					$.each(dir, function(index, value){												
+					$.each(dir, function(index, value){
 						if(value.Structure == "IMAGE_RESOURCE_DIRECTORY") {
 							// Nothing to store
 						} else if(value.Structure == "IMAGE_RESOURCE_DIRECTORY_ENTRY") {
@@ -1306,11 +1309,11 @@ function pedata_reload(hash)
 						if(value.constructor === Array) {
 							iterateResourceDir(value, parent_id, local_id);
 						}
-				    });	
-				}	
+				    });
+				}
 				iterateResourceDir(data.data["Resource directory"], -1, -1);
 			}
-			
+
 			//========================= Strings ===============================
 			$("#strings tbody").remove();
 			if (data.data["strings"]) {
@@ -1318,18 +1321,18 @@ function pedata_reload(hash)
 				$.each(data.data["strings"], function(idx, value){
 					$("#strings").append("<tr><td>"+value+"</td></tr>");
 			    });
-			}			
+			}
 			if (data.data["strings_raw"]) {
 				$("#t_pestrings_raw").val(data.data["strings_raw"]);
 			}
-			
+
 			//========================= Debug ===============================
 			$("#pdbpath tbody").remove();
 			if (data.data["pdbpath"]) {
 				$("#debug-badge").html("1");
 				$("#pdbpath").append("<tr><td>"+data.data["pdbpath"]+"</td></tr>");
 			}
-			
+
 			//========================= Digisig ===============================
 			$("#digisig tbody").remove();
 			if (data.data["digisig"] && data.data["digisig"]["certificates"]) {
@@ -1351,14 +1354,14 @@ function pedata_reload(hash)
 							+value.EndValidity+"</td></tr>");
 			    });
 			}
-			
+
 		}
 	},
 	function() {
 		$("#pe-div-warnings").hide();
 		$("#div-peheaders").hide();
 		$("#alert").html('<div class="alert alert-danger"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><span class="glyphicon glyphicon-exclamation-sign"></span> Unable to load data.</div>');
-	});	
+	});
 }
 
 function officedata_reload(hash)
@@ -1371,26 +1374,26 @@ function officedata_reload(hash)
 			$("#alert").html('<div class="alert alert-warning"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><span class="glyphicon glyphicon-exclamation-sign"></span> Office Exception: ' + data.error + '</div>');
 		} else {
 			$("#officedata_content").val(data.data["deobfuscated"]);
-			
+
 			//========================= Warnings ===============================
 			if (!data.data["macros_warnings"] || data.data["macros_warnings"].length == 0)
 				$("#office-div-warnings").hide();
 			else {
 				var arrayLength = data.data["macros_warnings"].length;
 				$("#office-div-warnings-content").empty();
-				
-				var warnings_count = arrayLength;				
+
+				var warnings_count = arrayLength;
 				$("#office-div-warnings-content").append('<li class="list-group-item list-group-item-header list-group-item-warning"><h4><span class="glyphicon glyphicon-exclamation-sign"></span> Warning(s) <span id="office-warnings-badge" class="badge pull-right badge-warning">0</span></h4></li>');
 				for (var i = 0; i < arrayLength; i++) {
 				    var warn_message = data.data["macros_warnings"][i];
 				    var warnings_content = '<li class="list-group-item list-group-item-group">' + warn_message["type"] + " (" + warn_message["keyword"] + "): " + warn_message["description"] + '</li>';
 				    $("#office-div-warnings-content").append(warnings_content);
 				}
-				
+
 				$("#office-warnings-badge").html(warnings_count.toString());
 				$("#office-div-warnings").show();
 			}
-			
+
 			//========================= Counters ===============================
 			$("#officedata_counters tbody").remove();
 			if (data.data["counters"]) {
@@ -1398,7 +1401,7 @@ function officedata_reload(hash)
 					$("#officedata_counters").append("<tr><td>"+key+"</td><td>"+value+"</td></tr>");
 			    });
 			}
-			
+
 			//========================= Macros ===============================
 			$("#officedata_macros tbody").remove();
 			if (data.data["macros"]) {
@@ -1415,7 +1418,7 @@ function officedata_reload(hash)
 		$("#div-officedata").hide();
 		$("#box-officedata_content").hide();
 		$("#alert").html('<div class="alert alert-danger"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><span class="glyphicon glyphicon-exclamation-sign"></span> Unable to load data.</div>');
-	});	
+	});
 }
 
 function pdfdata_reload(hash)
@@ -1424,31 +1427,31 @@ function pdfdata_reload(hash)
 		if (!data.valid) {
 			$("#pdf-div-warnings").hide();
 			$("#alert").html('<div class="alert alert-warning"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><span class="glyphicon glyphicon-exclamation-sign"></span> Office Exception: ' + data.error + '</div>');
-		} else {	
+		} else {
 			//========================= General Info ===========================
 			if (data["info"].length > 0) {
 				$("#t_pdfinfo").val(data["info"]);
 			}
-			
+
 			//========================= Warnings ===============================
 			if (!data.data["errors"] || data.data["errors"].length == 0)
 				$("#pdf-div-warnings").hide();
 			else {
 				var arrayLength = data.data["errors"].length;
 				$("#pdf-div-warnings-content").empty();
-				
-				var warnings_count = arrayLength;				
+
+				var warnings_count = arrayLength;
 				$("#pdf-div-warnings-content").append('<li class="list-group-item list-group-item-header list-group-item-warning"><h4><span class="glyphicon glyphicon-exclamation-sign"></span> Warning(s) <span id="pdf-warnings-badge" class="badge pull-right badge-warning">0</span></h4></li>');
 				for (var i = 0; i < arrayLength; i++) {
 				    var warn_message = data.data["errors"][i];
 				    var warnings_content = '<li class="list-group-item list-group-item-group">' + warn_message + '</li>';
 				    $("#pdf-div-warnings-content").append(warnings_content);
 				}
-				
+
 				$("#pdf-warnings-badge").html(warnings_count.toString());
 				$("#pdf-div-warnings").show();
 			}
-			
+
 			//========================= Streams ===============================
 			$("#pdfdata_streams tbody").remove();
 			$("#pdfdata_streams thead").remove();
@@ -1468,31 +1471,31 @@ function pdfdata_reload(hash)
 						type = type + " [Javascript!]";
 						color = "red";
 					}
-					
+
 					$("#pdfdata_streams").append("<tr style='color: " + color + "' data-toggle='collapse' data-target='#accordion_" + obj["id"] + "' class='clickable'><td>#"+obj["id"]+"</td><td>"+ type +"</td></tr>");
-					
+
 					// Attributes table
 					var table_content = '<table id="pdfdata_streams" class="table table-inverse"><tbody>';
-					table_content += '<th width="30%">Attribute</th><th width="70%">Value</th>';					
+					table_content += '<th width="30%">Attribute</th><th width="70%">Value</th>';
 					if (obj["attributes"]) {
 						$.each(obj["attributes"], function(key, value){
 							table_content += "<tr><td>"+ key +"</td><td>"+ value +"</td></tr>";
 					    });
 					}
 					table_content += '</tbody></table>';
-					
+
 					// Data content
 					var download_button = "";
 					if (obj["data_len"]) {
 						table_content += "<textarea style='width: 100%; height: 600px;' readonly>" + obj["data"] + "</textarea>";
-						download_button = 
+						download_button =
 						"      <a style='margin-left: 10px' class='btn btn-sm btn-default' data-toggle='tooltip' title='Download' OnClick='pdf_dump_stream(\"" + hash + "\"," + obj["id"] + ")'>"
 			            + "        <i id='sample-lock' class='fa fa-download'></i>"
 				        + "    </a>"
 				        + "    <a style='margin-left: 10px' class='btn btn-sm btn-default' data-toggle='tooltip' title='Submit' OnClick='sample_pdf_submit_stream(\"" + hash + "\"," + obj["id"] + ")'>"
 			            + "        <i id='sample-lock' class='fa fa-upload'></i>"
 				        + "    </a>";
-					}	
+					}
 					$("#pdfdata_streams").append(
 						"<tr>"
 						+ "<td colspan='2'>"
@@ -1513,7 +1516,7 @@ function pdfdata_reload(hash)
 	function() {
 		$("#pdf-div-warnings").hide();
 		$("#alert").html('<div class="alert alert-danger"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><span class="glyphicon glyphicon-exclamation-sign"></span> Unable to load data.</div>');
-	});	
+	});
 }
 
 function hexdata_reload(hash)
@@ -1523,7 +1526,7 @@ function hexdata_reload(hash)
 	},
 	function() {
 		$("#alert").html('<div class="alert alert-danger"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><span class="glyphicon glyphicon-exclamation-sign"></span> Unable to load data.</div>');
-	});	
+	});
 }
 
 function sample_reload(hash, first_load)
@@ -1537,7 +1540,7 @@ function sample_reload(hash, first_load)
 					sample_uploader.append($("<option/>").val(this.id).text(this.user_name));
 				}, null);
 				$("#sample-uploader").val(data.file.uploader);
-			});	
+			});
 		} else {
 			$("#sample-uploader").val(data.file.uploader);
 		}
@@ -1563,7 +1566,7 @@ function sample_reload(hash, first_load)
 		if (data.file.pdbpath) $("#sample-pdbpath").val(data.file.pdbpath);
 		if (data.file.imphash) $("#sample-imphash").val(data.file.imphash);
 		if (data.file.signer) $("#sample-signer").val(data.file.signer);
-		
+
 		// Filter actions
 		if (data.file.mime && data.file.mime == "application/x-dosexec") {
 			$("#pedata-selector").show();
@@ -1597,11 +1600,11 @@ function sample_reload(hash, first_load)
 			$("#pdfdata-selector").show();
 			$("#pdfdata-action").show();
 		}
-		
+
 		// VirusTotal
 		if(data.file.virustotal_status && data.file.virustotal_status == 1) {
-			$("#sample-vt-text").text('Score: ' + data.file.virustotal_score.toString() + '/55');
-			$("#sample-vt").attr("href", data.file.virustotal_link);		
+			$("#sample-vt-text").text('Score: ' + data.file.virustotal_score.toString() + data.file.virustotal_total.toString());
+			$("#sample-vt").attr("href", data.file.virustotal_link);
 			$("#sample-vt-text").removeClass("label-success");
 			if (data.file.virustotal_score < 10) {
 				$("#sample-vt-text").addClass("label-success");
@@ -1623,21 +1626,21 @@ function sample_reload(hash, first_load)
 			$("#sample-vt-text").addClass("label-default");
 			$("#sample-vt").removeAttr('href');
 		}
-		else if(data.file.virustotal_status && data.file.virustotal_status == -5)	$("#sample-vt-text").text('File Too Big');
-		else if(data.file.virustotal_status && data.file.virustotal_status == -3)	$("#sample-vt-text").text('API Error');
-		else if(data.file.virustotal_status && data.file.virustotal_status == -2)	$("#sample-vt-text").text('Scanning...');
-		else 								$("#sample-vt-text").text('Error');
-		
+		else if(data.file.virustotal_status && data.file.virustotal_status == -5) $("# sample-vt-text").text('File Too Big');
+		else if(data.file.virustotal_status && data.file.virustotal_status == -3) $("# sample-vt-text").text('API Error');
+		else if(data.file.virustotal_status && data.file.virustotal_status == -2) $("# sample-vt-text").text('Scanning...');
+		else                                                                      $("# sample-vt-text").text('Error');
+
 		if (data.file.virustotal_status && data.file.virustotal_status < 0 && data.file.virustotal_status != -6) {
 			$("#sample-vt-text").removeClass("label-success");
 			$("#sample-vt-text").addClass("label-primary");
 			$("#sample-vt").removeAttr('href');
 		}
-		
+
 		// Cuckoo
 		if(data.file.cuckoo_status != null && data.file.cuckoo_status == 0) {
 			$("#sample-cuckoo-text").text('Results');
-			$("#sample-cuckoo").attr("href", data.file.cuckoo_link);		
+			$("#sample-cuckoo").attr("href", data.file.cuckoo_link);
 			$("#sample-cuckoo-text").addClass("label-success");
 		}
 		else if(data.file.cuckoo_status != null && data.file.cuckoo_status == -1)	{
@@ -1650,25 +1653,25 @@ function sample_reload(hash, first_load)
 			$("#sample-cuckoo-text").text('None');
 			$("#sample-cuckoo").removeAttr('href');
 		}
-		
+
 		if (data.file.cuckoo_status != null && data.file.cuckoo_status < -1) {
 			$("#sample-cuckoo-text").removeClass("label-success");
 			$("#sample-cuckoo-text").addClass("label-primary");
 		}
-		
+
 		// Locked
 		if(data.file.locked > 0) {
 			$("#sample-lock").removeClass("fa-unlock");
 			$("#sample-lock").addClass("fa-lock");
 			$("#lock-button").text("Unlock");
 		}
-		
+
 		// Favorite
 		if(data.file.favorite > 0) {
 			$("#sample-fav").removeClass("fa-star-o");
 			$("#sample-fav").addClass("fa-star");
 		}
-		
+
 		// Tags
 		// https://maxfavilli.com/jquery-tag-manager
 		if(first_load) {
@@ -1677,21 +1680,21 @@ function sample_reload(hash, first_load)
 				tagClass: 'myTag',
 				AjaxPush: 'api.php?action=updatefile',
 				AjaxPushAllTags: true,
-				AjaxPushParameters: {hash: hash},	
+				AjaxPushParameters: {hash: hash},
 			});
 		} else {
 			$(".tm-input").tagsManager('empty');
-		}	
+		}
 		if (data.file.tags) {
 			var tags = data.file.tags.split(",");
-			for (var j=0, tag; tag=tags[j]; j++)				
+			for (var j=0, tag; tag=tags[j]; j++)
 				$(".tm-input").tagsManager('pushTag', tag, true);	// ignore events so we don't call AJAX while pushing here
 		}
-			
+
 		// Editor
 		if (first_load) {
 			tinymce.init({
-				selector: '#t_comment',		
+				selector: '#t_comment',
 				plugins: [
 				          'advlist autolink lists link image charmap print preview anchor',
 				          'searchreplace visualblocks code fullscreen',
@@ -1707,32 +1710,32 @@ function sample_reload(hash, first_load)
 		} else {
 			tinymce.get('t_comment').setContent(data.file.comment);
 		}
-		
+
 		// URLs
 		var first_url_value = $("input#url_first");
         var first_url_name  = $("input#name_first");
-        
+
         // Cleanup first
         var rows = $("[id=url_node]");
         rows.remove();
-        
+
         if (first_url_value) {
             var urls_array 	= data.file.urls.split(',');
             var first_url 	= urls_array[0];
             var key_val  	= first_url.split('|');
             var name_val    = key_val.length == 2 ? key_val[0] : '';
             var url_val     = key_val.length == 2 ? key_val[1] : first_url;
-            
+
             if (first_url_name) first_url_name.val(name_val);
             first_url_value.val(url_val);
-            
+
             var html = "";
-            for (var url_count=1, url; url=urls_array[url_count]; url_count++) 
-            {		
+            for (var url_count=1, url; url=urls_array[url_count]; url_count++)
+            {
             	var key_val  	= url.split('|');
                 var name_val    = key_val.length == 2 ? key_val[0] : '';
                 var url_val     = key_val.length == 2 ? key_val[1] : first_url;
-            	
+
                 html += "\
                 <div class='form-group' id='url_node'>\
                     <div class='col-xs-4'> \
@@ -1763,7 +1766,7 @@ function sample_reload(hash, first_load)
 function initSample(hash)
 {
 	$('a[data-toggle="tab"]').on("shown.bs.tab", function(e) {
-		$("#alert").html('');	// reset alert		
+		$("#alert").html('');	// reset alert
 		var target = $(e.target).attr("href") // activated tab
 		if(target == '#pedata-tab') {
 			pedata_reload(hash);
@@ -1779,22 +1782,22 @@ function initSample(hash)
 		}
 	});
 	// Fill cuckoo modal
-    $("#submitCuckooModal").on("show.bs.modal", function(e) {  
+    $("#submitCuckooModal").on("show.bs.modal", function(e) {
     	var hash = $(e.relatedTarget).attr("data-id");
-    	$("#body_cuckoo_submit").attr("data-id", hash);			// Save current ID    	
+    	$("#body_cuckoo_submit").attr("data-id", hash);			// Save current ID
     	get_cuckoomachines(function(data) {
     		// Machines
 			if (data["machines"]) {
 				$("#select_cuckoo_machine").find('option').remove().end();
-				$('#select_cuckoo_machine').append($('<option>', { value: '', text: "auto" }));  
-				$.each(data["machines"], function(index, value){	
-					$('#select_cuckoo_machine').append($('<option>', { value: value.id, text: value.label }));  
+				$('#select_cuckoo_machine').append($('<option>', { value: '', text: "auto" }));
+				$.each(data["machines"], function(index, value){
+					$('#select_cuckoo_machine').append($('<option>', { value: value.id, text: value.label }));
 			    });
 			}
 			// Options
 			if (data["scan_options"] && data["scan_options"]["options"]) {
 				$("#select_cuckoo_options").html('');
-				$.each(data["scan_options"]["options"], function(index, value){	
+				$.each(data["scan_options"]["options"], function(index, value){
 					$('#select_cuckoo_options').append(
 						"<div class=\"checkbox\">\
 						  <label><input id=\"" + value + "\" type=\"checkbox\" value=\"\">" + value + "</label>\
@@ -1803,7 +1806,7 @@ function initSample(hash)
 			    });
 			}
         });
-    });		
+    });
 	sample_reload(hash, true);
 }
 
@@ -1814,11 +1817,11 @@ function refreshRepoInformation()
 		var span_count	= document.getElementById("files-count");
 		if (span_count) {
 			span_count.innerHTML = data["count"] + " (" + formatFileSize(parseInt(data["total"])) + ")";
-		}			
+		}
 		if ($('.pagination').length) {
 			$('.pagination').jqPagination('option', 'max_page', data['max_page']);
 		}
-		
+
 		// Cuckoo, optional
 		if (data["cuckoo"]) {
 			var span_status	= document.getElementById("cuckoo-status");
@@ -1828,7 +1831,7 @@ function refreshRepoInformation()
 				href_status.setAttribute('href', data["cuckoo"]["browse_url"]);
 				href_status.setAttribute('target', '_blank');
 			}
-		}		
+		}
 	});
 }
 
@@ -1840,77 +1843,77 @@ function refreshRepo()
 	return refreshRepoInformation();
 }
 
-function initRepo(f) 
+function initRepo(f)
 {
     'use strict';
     filters = f;
-    
+
     // Initialize the jQuery File Upload widget:
     $('#fileupload').fileupload({
     });
-	
+
 	// triggered before the file is added to the UI
-	$('#fileupload').bind('fileuploadadd', function (e, data) {	
+	$('#fileupload').bind('fileuploadadd', function (e, data) {
 		for (var i = 0 ; i < data.files.length; i++) {
 			data.files[i].index = current_file_index++;	// tag the file with a new index
 		}
-	});	
+	});
 	// triggered when a file is added to the UI
 	$('#fileupload').bind('fileuploadadded', function (e, data) {
-		$("#alert").html('');	// reset alert		
+		$("#alert").html('');	// reset alert
 		update_upload_count();	// update badge
-		add_file_upload_tags();	// add tag to this item	
-	});	
+		add_file_upload_tags();	// add tag to this item
+	});
 	// triggered when a file is uploaded
 	$('#fileupload').bind('fileuploadfinished', function (e, data) {
 		$("#alert").html('');
 		update_upload_count();
 		if (data.result && data.result.files) on_files_gotten(data.result);
-	});	
+	});
 	// triggered when a file failed to upload
 	$('#fileupload').bind('fileuploadfailed', function (e, data) {
 		$("#alert").html('<div class="alert alert-danger"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><span class="glyphicon glyphicon-exclamation-sign"></span> Unable to upload the file.</div>');
 		update_upload_count();
-	});	
+	});
 	// triggered before a file is submited
 	$('#fileupload').bind('fileuploadsubmit', function (e, data) {
 		for (var i = 0 ; i < data.files.length; i++) {
 			var index = data.files[i].index;
-			
+
 			// VirusTotal checkbox
-			var vt_submit_input 	= $("#vtsubmit_" + index.toString());	
+			var vt_submit_input 	= $("#vtsubmit_" + index.toString());
 			if (vt_submit_input && vt_submit_input.is(':checked') == true) {
 				data.files[i].vtsubmit = true;
 			} else {
 				data.files[i].vtsubmit = false;
 			}
-			
+
 			// Cuckoo checkbox
-			var ck_submit_input 	= $("#cuckoosubmit_" + index.toString());	
+			var ck_submit_input 	= $("#cuckoosubmit_" + index.toString());
 			if (ck_submit_input && ck_submit_input.is(':checked') == true) {
 				data.files[i].cksubmit = true;
 			} else {
 				data.files[i].cksubmit = false;
 			}
-			
+
 			// Tags
-			var tags_input = $("input[name=tags_upload_" + index.toString() + "_hidden]");	
+			var tags_input = $("input[name=tags_upload_" + index.toString() + "_hidden]");
 			if (tags_input) {
 				data.files[i].tags = tags_input.val();
 			}
-			
+
 			// URLs (empty for now)
 			data.files[i].urls = '';
-			
+
 			// modify index to reflect the current form
 			data.files[i].index = i;
-			
+
 			// attach form data
 			data.formData = {
 				files_data: JSON.stringify(data.files)
 			}
 		}
-	});	
+	});
 	// display error message
 	$('#fileupload').bind('fileuploaddestroyfailed', function (e, data) {
 		$("#alert").html('<div class="alert alert-danger"><span class="glyphicon glyphicon-exclamation-sign"></span> Unable to remove the item, check your rights.</div>');
@@ -1918,39 +1921,39 @@ function initRepo(f)
 	// remove error message
 	$('#fileupload').bind('fileuploaddestroyed', function (e, data) {
 		$("#alert").html('');
-		
+
 		// remove more data row
 		var btn_id = data.context.prevObject.attr('id');
 		$("tr#more_" + btn_id.substring(7)).remove();
 	});
-    
+
     // Fill comment modal
-    $("#commentModal").on("show.bs.modal", function(e) {  
+    $("#commentModal").on("show.bs.modal", function(e) {
     	var hash = $(e.relatedTarget).attr("data-id");
-    	$("#body_comment").attr("data-id", hash);			// Save current ID    	
+    	$("#body_comment").attr("data-id", hash);			// Save current ID
     	get_file(hash, function(data) {
     		var comment = data.file.comment;				// Fill with ID's comment
-    		$(e.relatedTarget).attr("data-comment-value", comment); 
+    		$(e.relatedTarget).attr("data-comment-value", comment);
     		tinymce.get('p_comment').setContent(comment);
-        }); 
-    });	
+        });
+    });
     // Fill cuckoo modal
-    $("#submitCuckooModal").on("show.bs.modal", function(e) {  
+    $("#submitCuckooModal").on("show.bs.modal", function(e) {
     	var hash = $(e.relatedTarget).attr("data-id");
-    	$("#body_cuckoo_submit").attr("data-id", hash);			// Save current ID    	
+    	$("#body_cuckoo_submit").attr("data-id", hash);			// Save current ID
     	get_cuckoomachines(function(data) {
     		// Machines
 			if (data["machines"]) {
 				$("#select_cuckoo_machine").find('option').remove().end();
-				$('#select_cuckoo_machine').append($('<option>', { value: '', text: "auto" }));  
-				$.each(data["machines"], function(index, value){	
-					$('#select_cuckoo_machine').append($('<option>', { value: value.id, text: value.label }));  
+				$('#select_cuckoo_machine').append($('<option>', { value: '', text: "auto" }));
+				$.each(data["machines"], function(index, value){
+					$('#select_cuckoo_machine').append($('<option>', { value: value.id, text: value.label }));
 			    });
 			}
 			// Options
 			if (data["scan_options"] && data["scan_options"]["options"]) {
 				$("#select_cuckoo_options").html('');
-				$.each(data["scan_options"]["options"], function(index, value){	
+				$.each(data["scan_options"]["options"], function(index, value){
 					$('#select_cuckoo_options').append(
 						"<div class=\"checkbox\">\
 						  <label><input id=\"" + value + "\" type=\"checkbox\" value=\"\">" + value + "</label>\
@@ -1959,9 +1962,9 @@ function initRepo(f)
 			    });
 			}
         });
-    });	
+    });
     tinymce.init({
-		selector: '#p_comment',		
+		selector: '#p_comment',
 		inline: true,
 		plugins: [
 		          'advlist autolink lists link image charmap print preview anchor',
@@ -1976,38 +1979,38 @@ function initRepo(f)
 	    	update_comment(this_id, new_value);						// Save ID's comment
         }
 	});
-    
+
     // Fill urls modal
     $("#urlModal").on("show.bs.modal", function(e) {
     	var hash = $(e.relatedTarget).attr("data-id");
     	get_file(hash, function(data) {
     		var urls = data.file.urls;
     		$(e.relatedTarget).attr("data-urls-value", urls);
-    		
+
     		var first_url_value = $("input#url_first");
             var first_url_name  = $("input#name_first");
-            
+
             // Cleanup first
             var rows = $("[id=url_node]");
             rows.remove();
-            
+
             if (first_url_value) {
                 var urls_array 	= urls.split(',');
                 var first_url 	= urls_array[0];
                 var key_val  	= first_url.split('|');
                 var name_val    = key_val.length == 2 ? key_val[0] : '';
                 var url_val     = key_val.length == 2 ? key_val[1] : first_url;
-                
+
                 if (first_url_name) first_url_name.val(name_val);
                 first_url_value.val(url_val);
-                
+
                 var html = "";
-                for (var url_count=1, url; url=urls_array[url_count]; url_count++) 
-                {		
+                for (var url_count=1, url; url=urls_array[url_count]; url_count++)
+                {
                 	var key_val  	= url.split('|');
                     var name_val    = key_val.length == 2 ? key_val[0] : '';
                     var url_val     = key_val.length == 2 ? key_val[1] : first_url;
-                	
+
                     html += "\
                     <div class='form-group' id='url_node'>\
                         <div class='col-xs-4'> \
@@ -2027,15 +2030,15 @@ function initRepo(f)
                 $("#url_node_first").after( html );
                 $("#body_urls").attr('data-id', hash);
             }
-        });  
+        });
     });
-    
+
     // Fill comment vt modal
     $("#commentVTModal").on("show.bs.modal", function(e) {
         var hash        = $(e.relatedTarget).attr("data-id");
         $("#body_vt_comment").attr('data-id', hash);
-    });	
-    
+    });
+
     $('.pagination').jqPagination({
 		link_string	: '/?page={page_number}',
 		max_page	: 1,
@@ -2046,20 +2049,20 @@ function initRepo(f)
     refreshRepoInformation();
 }
 
-function refreshTimeLine(days_count) 
-{	
+function refreshTimeLine(days_count)
+{
 	return $.ajax({
     	 type: "GET",
          dataType: "json",
          url: "api.php?action=getsubmissionsdata",
-         data: {days_count: days_count},	
+         data: {days_count: days_count},
          success: function(data)
          {
         	var color_front = "rgba(52, 152, 219,1.0)";
         	var color_back = "rgba(52, 152, 219,0.5)";
         	var color_front2 = "rgba(231, 76, 60,1.0)";
         	var color_back2 = "rgba(231, 76, 60,0.5)";
-    	    var areaChartCanvas = $("#areaChartSubmissions").get(0).getContext("2d");    	    
+    	    var areaChartCanvas = $("#areaChartSubmissions").get(0).getContext("2d");
     	    var areaChartData 	= {
     	      labels: data.labels,
     	      datasets: [
@@ -2087,7 +2090,7 @@ function refreshTimeLine(days_count)
 					yAxisID: "1",
     	        }
     	      ]
-    	    };    	    
+    	    };
     	    var areaChartOptions = {
     	      maintainAspectRatio: false,
     	      responsive: true,
@@ -2103,7 +2106,7 @@ function refreshTimeLine(days_count)
 		  	         "id": "1"
 		  	       }]
 	  	      }
-    	    };    	    
+    	    };
     	    //Create the line chart
     	    var areaChart = new Chart.Line(areaChartCanvas, {
     	    	data: areaChartData,
@@ -2117,7 +2120,7 @@ function refreshUploaders()
 {
 	return get_uploadersdata(function(data) {
 		$.each(data, function(index, value){
-			var user_display = 
+			var user_display =
 			"<li>"
             + (value.avatar ? "<img alt='' height='72px' width='72px' class='img-circle' src='data:image/png;base64," + value.avatar + "'>"
             : "<img alt='' height='72px' width='72px' class='img-cicrle' src='dist/img/noavatar.jpg'>")
@@ -2126,7 +2129,7 @@ function refreshUploaders()
             + "</li>";
 			$(".users-list").append(user_display);
 	    });
-    }); 
+    });
 }
 
 function tagClick(data)
@@ -2147,7 +2150,7 @@ function refreshTags()
 			words.push(word);
 		});
 	    $c.jQCloud(words);
-    }); 
+    });
 }
 
 function refreshMime()
@@ -2155,7 +2158,7 @@ function refreshMime()
 	return get_mimedata(function(data) {
 		var color_front = "rgba(52, 152, 219,1.0)";
     	var color_back = "rgba(52, 152, 219,0.5)";
-	    var areaChartCanvas = $("#areaChartTypes").get(0).getContext("2d");    	    
+	    var areaChartCanvas = $("#areaChartTypes").get(0).getContext("2d");
 	    var areaChartData 	= {
 	      labels: data.labels,
 	      datasets: [
@@ -2166,7 +2169,7 @@ function refreshMime()
 				data: data.points
 	        }
 	      ]
-	    };    	    
+	    };
 	    var areaChartOptions = {
 	      maintainAspectRatio: false,
 	      responsive: true,
@@ -2176,18 +2179,18 @@ function refreshMime()
 	      legend: {
   	            display: false,
   	      }
-	    };    	    
+	    };
 	    //Create the line chart
 	    var areaChart = new Chart.Bar(areaChartCanvas, {
 	    	data: areaChartData,
 	    	options: areaChartOptions
 	    });
-    }); 
+    });
 }
 
-function initStats() 
+function initStats()
 {
-    'use strict';	
+    'use strict';
 	$.when(
 		refreshRepoInformation(),
 		refreshTimeLine(),
@@ -2199,13 +2202,13 @@ function initStats()
 }
 
 function refreshCuckooInformation() {
-	return get_storage_info(function(data) {	
-		if (data["cuckoo"]) 
+	return get_storage_info(function(data) {
+		if (data["cuckoo"])
 		{
 			// CPU
-			var cpu_count = data["cuckoo"]["cpuload"].length;			
-			$("#cpu-label").text("CPU (" + cpu_count + " core(s))");			
-			
+			var cpu_count = data["cuckoo"]["cpuload"].length;
+			$("#cpu-label").text("CPU (" + cpu_count + " core(s))");
+
 			var cpu_val = 0;
 			$.each(data["cuckoo"]["cpuload"], function(index, value){
 				cpu_val += value;
@@ -2213,46 +2216,46 @@ function refreshCuckooInformation() {
 			cpu_val /= cpu_count;
 			$("#cpu-progress").attr("aria-valuenow", cpu_val).css("width", cpu_val + '%');
 			$("#cpu-progress").text(cpu_val.toFixed(2) + '%');
-			
+
 			// Disk
 			var occupied_space = (100 * data["cuckoo"]["diskspace"]["analyses"]["used"]) / data["cuckoo"]["diskspace"]["analyses"]["total"];
-			$("#disk-label").text("Disk (" + formatFileSize(data["cuckoo"]["diskspace"]["analyses"]["used"]) + " / " + formatFileSize(data["cuckoo"]["diskspace"]["analyses"]["total"]) + ")");	
-			
+			$("#disk-label").text("Disk (" + formatFileSize(data["cuckoo"]["diskspace"]["analyses"]["used"]) + " / " + formatFileSize(data["cuckoo"]["diskspace"]["analyses"]["total"]) + ")");
+
 			$("#disk-progress").attr("aria-valuenow", occupied_space).css("width", occupied_space + '%');
 			$("#disk-progress").text(occupied_space.toFixed(2) + '%');
-			
+
 			// Link
 			$("#cuckoo-link").attr("href", data["cuckoo"]["browse_url"]);
 			$("#cuckoo-link").attr("target", "_blank");
 			$("#cuckoo-link").text(data["cuckoo"]["browse_url"]);
-			
+
 			// Version
 			$("#cuckoo-version").text(data["cuckoo"]["version"]);
-			
+
 			// Name
 			$("#cuckoo-name").text(data["cuckoo"]["hostname"]);
-		}		
+		}
 	});
 }
 
 function refreshCuckooMachines() {
-	return get_cuckoomachines(function(data) 
-	{			
+	return get_cuckoomachines(function(data)
+	{
 		// Machines
 		if (data["machines"]) {
 			$("#machines-table tbody").remove();
 			$("#machines-table").append("<tr><th>Status</th><th>Id</th><th>IP</th><th>Name</th><th>Platform</th><th>Tags</th></tr>");
-			$.each(data["machines"], function(index, value){	
+			$.each(data["machines"], function(index, value){
 				var style = "success";
 				if (value.status == 'poweroff') {
 					style = "warning"
 				}
-				
+
 				var tags = "";
-				$.each(value.tags, function(index, value){	
+				$.each(value.tags, function(index, value){
 					tags += "<span class='label label-primary'>" + value + "</span> ";
 				});
-				
+
 				$("#machines-table").append("<tr><td><span class='label label-" + style + "'>"
 						+value.status+"</span></td><td>"
 						+value.id+"</td><td>"
@@ -2266,26 +2269,26 @@ function refreshCuckooMachines() {
 }
 
 function refreshCuckooTasks() {
-	return get_cuckootasks(function(data) 
-	{			
+	return get_cuckootasks(function(data)
+	{
 		// Tasks
 		if (data["tasks"]) {
 			$("#tasks-table tbody").remove();
 			$("#tasks-table").append("<tr><th>Id</th><th>Added on</th><th>Status</th><th>Category</th><th>Item</th><th>Actions</th></tr>");
-			$.each(data["tasks"], function(index, value){	
+			$.each(data["tasks"], function(index, value){
 				var style = "success";
 				if (value.status == 'running') {
 					style = "warning";
-				}	
+				}
 				if (value.status == 'failed_analysis') {
 					style = "danger";
-				}	
+				}
 				var item = value.target;
 				if (value.sample && value.sample.md5) {
 					item = value.sample.md5 + ' (' + value.target + ')';
 				}
-				
-				var actions = 
+
+				var actions =
 				'<div class="btn-group"> \
 					<div class="dropdown"> \
 					<button type="button" class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown"> \
@@ -2299,8 +2302,8 @@ function refreshCuckooTasks() {
 						</a></li> \
 					</ul> \
 					</div> \
-				</div>';				
-				
+				</div>';
+
 				$("#tasks-table").append("<tr><td><a href='" + value.link + "' target='_blank'>#" +
 						+value.id+"</a></td><td>"
 						+value.added_on+"</td><td><span class='label label-" + style + "'>"
@@ -2315,7 +2318,7 @@ function refreshCuckooTasks() {
 
 function initCuckoo()
 {
-	'use strict';	
+	'use strict';
 	$.when(
 	  refreshCuckooInformation(),
 	  refreshCuckooMachines(),
