@@ -51,7 +51,7 @@ $config = array(
     ),
     "urls" => array(
         "baseUrl" => "http://localhost/mrf/",
-        "storagePath" => "/var/www/html/mrf/storage",
+        "storagePath" => "/var/www/html/mrf/storage/",
         "storageUrl"  => "http://localhost/mrf/storage/"
     ),
 	"ui" => array(
