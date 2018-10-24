@@ -723,7 +723,7 @@ console.log("I am doing file upload");
   </div>
   <!-- /.content-wrapper -->
 
-  <?php  include(__DIR__."/footer.php"); ?> 
+  
   <?php  include(__DIR__."/right-nav.php"); ?> 
   
 </div>

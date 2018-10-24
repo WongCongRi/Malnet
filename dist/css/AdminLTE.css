@@ -2235,24 +2235,26 @@ a:focus {
   display: block;
 }
 .btn-default {
-  background-color: #f4f4f4;
-  color: #444;
-  border-color: #ddd;
+  background-color: #666;
+  color: #fff;
+  border-color: #000;
 }
 .btn-default:hover,
 .btn-default:active,
 .btn-default.hover {
-  background-color: #e7e7e7;
+  background-color: #777;
+  color: #fff;
+  border-color: #000;
 }
 .btn-primary {
-  background-color: #e45785;
-  border-color: #c52057;
+  background-color: #007acc;
+  border-color: #005c99;
 }
 .btn-primary:hover,
 .btn-primary:active,
 .btn-primary.hover {
-  background-color: #c52057;
-  border-color: #e45785;
+  background-color: #006bb3;
+  border-color: #005c99;
 }
 .btn-success {
   background-color: #00a65a;
@@ -2317,9 +2319,9 @@ a:focus {
   min-width: 80px;
   height: 60px;
   text-align: center;
-  color: #666;
-  border: 1px solid #ddd;
-  background-color: #f4f4f4;
+  color: #fff;
+  border: 1px solid #000;
+  background-color: #666;
   font-size: 12px;
 }
 .btn-app > .fa,
@@ -2329,8 +2331,8 @@ a:focus {
   display: block;
 }
 .btn-app:hover {
-  background: #f4f4f4;
-  color: #444;
+  background: #777;
+  color: #fff;
   border-color: #aaa;
 }
 .btn-app:active,
