@@ -361,7 +361,7 @@ console.log("I am doing file upload");
 				<td>
 					<span class="size">Processing...</span>
 				</td>
-				<td colspan=4>
+				<td colspan=3>
 					<div class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" style="min-width: 50px;">
 						<div class="progress-bar progress-bar-info"></div>
 					</div>
@@ -544,12 +544,11 @@ console.log("I am doing file upload");
 								<span>Delete</span>
 							</a></li>				
 						{% } %}
-                        <li class="divider"></li>
-                        <li><a href="#" class="menu-button-comment" id="comment_{%=file.md5%}" data-id="{%=file.md5%}" data-comment-value="{%=file.comment%}" data-toggle="modal" data-target="#commentModal">
+                        <li style="display:none" ><a href="#" class="menu-button-comment" id="comment_{%=file.md5%}" data-id="{%=file.md5%}" data-comment-value="{%=file.comment%}" data-toggle="modal" data-target="#commentModal">
                             <i class="glyphicon glyphicon-pencil"></i>
                             <span>Comment</span>
                         </a></li> 
-                        <li><a href="#" class="menu-button-urls" id="urls_{%=file.md5%}" data-id="{%=file.md5%}" data-urls-value="{%=file.urls%}" data-toggle="modal" data-target="#urlModal">
+                        <li style="display:none"><a href="#" class="menu-button-urls" id="urls_{%=file.md5%}" data-id="{%=file.md5%}" data-urls-value="{%=file.urls%}" data-toggle="modal" data-target="#urlModal">
                             <i class="glyphicon glyphicon-globe"></i>
                             <span>Manage URLs</span>
                         </a></li> 

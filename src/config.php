@@ -32,11 +32,11 @@ $config = array(
             "link" => "/mrf/index.php",
             "icon" => "fa fa-bug",
         ),
-		array(
-            "name" => "Statistics",
-            "link" => "/mrf/stats.php",
-            "icon" => "fa fa-pie-chart",
-        ),
+	//	array(
+        //    "name" => "Statistics",
+        //    "link" => "/mrf/stats.php",
+        //    "icon" => "fa fa-pie-chart",
+        //),
 		array(
             "name" => "Cuckoo",
             "link" => "/mrf/cuckoo.php",
