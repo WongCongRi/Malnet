@@ -64,10 +64,10 @@
 			<!-- Menu Footer-->
 			<li class="user-footer">
 			<div class="pull-left">
-				<a href="<?php echo $GLOBALS["config"]["urls"]["baseUrl"]?>account.php" class="btn btn-default btn-flat">Profile</a>
+				<a href="<?php echo $GLOBALS["config"]["urls"]["baseUrl"]?>account.php" class="btn btn-danger btn-flat">Profile</a>
 			</div>
 			<div class="pull-right">
-				<a href="<?php echo $GLOBALS["config"]["urls"]["baseUrl"]?>logout.php" class="btn btn-default btn-flat">Sign out</a>
+				<a href="<?php echo $GLOBALS["config"]["urls"]["baseUrl"]?>logout.php" class="btn btn-danger btn-flat">Sign out</a>
 			</div>
 			</li>
 		</ul>

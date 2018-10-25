@@ -115,7 +115,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       }
 
      #logo{
-            box-shadow: 7px 5px 4px #595959;
+            box-shadow: 5px 5px 9px #777;
             border-radius: 50px;
             max-width: 100%;
           }
@@ -153,7 +153,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
 	</div>-->
     </header>
     </div>
-    <?php  include(__DIR__."/footer.php"); ?> 
     <?php  include(__DIR__."/right-nav.php"); ?>
     </div>
 
