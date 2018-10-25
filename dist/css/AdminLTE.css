@@ -2235,9 +2235,9 @@ a:focus {
   display: block;
 }
 .btn-default {
-  background-color: #666;
-  color: #fff;
-  border-color: #000;
+  background-color: #f4f4f4;
+  color: #444;
+  border-color: #ddd;
 }
 .btn-default:hover,
 .btn-default:active,
