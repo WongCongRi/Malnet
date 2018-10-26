@@ -159,7 +159,7 @@
   </div>
 
   <div class="register-box-body">
-    <p class="login-box-msg"><u>Register a new membership</u></p>
+    <p class="login-box-msg"><u>Register for a new account</u></p>
 
     <?php
     foreach($errors as $error) { ?>

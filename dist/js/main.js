@@ -1603,7 +1603,7 @@ function sample_reload(hash, first_load)
 
 		// VirusTotal
 		if(data.file.virustotal_status && data.file.virustotal_status == 1) {
-			$("#sample-vt-text").text('Score: ' + data.file.virustotal_score.toString() + data.file.virustotal_total.toString());
+			$("#sample-vt-text").text('Score: ' + data.file.virustotal_score.toString() + '/' + data.file.virustotal_total.toString());
 			$("#sample-vt").attr("href", data.file.virustotal_link);
 			$("#sample-vt-text").removeClass("label-success");
 			if (data.file.virustotal_score < 10) {
