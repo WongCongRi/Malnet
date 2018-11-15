@@ -67,7 +67,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <style type="text/css">
     .table-responsive {
 		min-height: 400px !important;
-		max-width: 1920px;
+		max-width: 1850px;
 	}
 	
 	ul#dropdown-item-actions,

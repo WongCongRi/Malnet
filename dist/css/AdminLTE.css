@@ -4961,11 +4961,11 @@ table.text-center th {
   }
   .table-responsive {
     overflow: auto;
-    max-width: 1920px;
+    max-width: 1850px;
   }
   .table-responsive > .table tr th,
   .table-responsive > .table tr td {
     white-space: normal !important;
-    max-width: 1920px;
+    max-width: 1850px;
   }
 }
